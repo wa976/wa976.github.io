@@ -137,7 +137,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2' # al-folio와 호환되는 Ruby 버전 명시
+          ruby-version: "3.2" # al-folio와 호환되는 Ruby 버전 명시
           bundler-cache: true # runs 'bundle install' and caches installed gems
       - name: Setup Pages
         id: pages
