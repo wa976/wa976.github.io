@@ -76,7 +76,7 @@ h2 {
     <i>DCASE 2025 Task1 2025(arxiv)</i> - <b> Adaptive Knowledge Distillation using a Device-Aware Teacher for Low-Complexity Acoustic Scene Classification</b> (SG Jeong, SE Kim<) <br><br>
 
 
-    <i>ITC-CSCC 2024(arxiv)</i> - <b>Patient Domain Supervised Contrastive Learning for Lung Sound Classification Using Mobile Phone</b> (SG Jeong, SE Kim) <br><br>
+    <i>ITC-CSCC 2024</i> - <b>Patient Domain Supervised Contrastive Learning for Lung Sound Classification Using Mobile Phone</b> (SG Jeong, SE Kim) <br><br>
 
     
     <i>한국전기전자학회 학술대회, 2025(우수논문상)</i> - <b>오디오 분리 기법을 이용한 스마트폰 기반 폐음 분류의 소음강건성 향상 연구</b> (정승규, 김성은) <br><br>
