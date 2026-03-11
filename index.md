@@ -76,7 +76,7 @@ h2 {
     <i>CHI 2025</i> - <b> iMedic: Towards Smartphone-based Self-Auscultation Tool for AI-Powered Pediatric Respiratory Assessment</b> (**SG Jeong**, SW Nam, SK Jung, SE Kim) <br><br>
 
 
-    <i>DCASE 2025 Task1 2025(arxiv)</i> - <b> Adaptive Knowledge Distillation using a Device-Aware Teacher for Low-Complexity Acoustic Scene Classification</b> (**SG Jeong**, SE Kim<) <br><br>
+    <i>DCASE 2025 Task1 2025(arxiv)</i> - <b> Adaptive Knowledge Distillation using a Device-Aware Teacher for Low-Complexity Acoustic Scene Classification</b> (**SG Jeong**, SE Kim) <br><br>
 
 
     <i>ITC-CSCC 2024</i> - <b>Patient Domain Supervised Contrastive Learning for Lung Sound Classification Using Mobile Phone</b> (**SG Jeong**, SE Kim) <br><br>
