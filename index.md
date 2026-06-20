@@ -181,7 +181,7 @@ title: Seunggyu Jeong
     <h2 id="challenges">Challenge Submissions</h2>
     <ul>
       <li>
-        INTERSPEECH 2026 NeckVibe Challenge — Detection of Phonotraumatic Vocal Hyperfunction (PVH)
+        INTERSPEECH 2026 NeckVibe Challenge — <b>1st Place</b> (NPVH detection, AUC 0.861) · <b>3rd Place</b> (PVH detection, AUC 0.891)
       </li>
       <li>
         DCASE 2025 Challenge — Task 1 (Low-Complexity Acoustic Scene Classification)
@@ -199,6 +199,8 @@ title: Seunggyu Jeong
 
     <h2 id="awards">Awards & Honors</h2>
     <ul>
+      <li>2026 — <b>1st Place</b>, NeckVibe Challenge NPVH Detection (AUC 0.861), INTERSPEECH 2026</li>
+      <li>2026 — <b>3rd Place</b>, NeckVibe Challenge PVH Detection (AUC 0.891), INTERSPEECH 2026</li>
       <li>2026 — AI Seoul Future Talent Doctoral Scholarship, Seoul Future Talent Foundation</li>
       <li>2026 — Selected, TechCore Program (Korean Government Entrepreneurship Initiative)</li>
       <li>2025 — Best Paper Award (우수논문상), Korean Institute of Electrical and Electronic Engineers (한국전기전자학회) Annual Conference</li>
