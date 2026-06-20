@@ -2,96 +2,155 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Seunggyu Jeong (정승규)
+    - name: Position
+      value: Co-Founder & CTO, MediSensing Inc. / Ph.D. Candidate, Seoul National University of Science and Technology
+    - name: Email
+      value: seunggyu@medisensing.com
     - name: Languages
-      value: English, German
+      value: Korean (Native), English (OPIc IH)
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: Ph.D. in Applied Artificial Intelligence
+      institution: Seoul National University of Science and Technology, Seoul, Republic of Korea
+      year: 2024 - Present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+        - Advisor&#58; Prof. Seong-Eun Kim
+        - Research focus&#58; Respiratory sound analysis, domain generalization, edge audio AI
+        - Selected as AI Seoul Future Talent Doctoral Scholar (2026, Seoul Future Talent Foundation)
+    - title: M.S. in Applied Artificial Intelligence
+      institution: Seoul National University of Science and Technology, Seoul, Republic of Korea
+      year: 2024 - 2026
+    - title: B.S. in Electronic Engineering
+      institution: Seoul National University of Science and Technology, Seoul, Republic of Korea
+      year: 2017 - 2024
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Co-Founder & Chief Technology Officer
+      institution: MediSensing Inc., Seoul, Republic of Korea
+      year: 2024 - Present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
-      description:
-        - Description 1.
-        - Description 2.
+        - Lung-sound AI startup spun off from Seoul Tech Applied AI Lab
+        - Led development of core respiratory sound AI algorithms (5 international publications, 6 patents)
+        - Drove Hanil Electric digital stethoscope partnership (NDA → MOU, FDA 510(k) pathway)
+        - Architected on-device audio AI (80KB Edge SED on ESP32-S3) for home respiratory monitoring
+        - Submitted 4 entries to DCASE 2026 (Tasks 1, 2, 4, 7) as main contributor
+    - title: TechCore Program Participant
+      institution: 2026 Cohort
+      year: 2026
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
+- title: Research Interests
+  type: nested_list
+  contents:
+    - title: Respiratory Sound Analysis
+      items:
+        - Pediatric lung sound classification and abnormality detection
+        - Cross-device generalization (electronic stethoscope ↔ smartphone microphone)
+    - title: Domain Generalization for Audio AI
+      items:
+        - Leave-One-Dataset-Out (LODO) generalization across ICBHI, SPRSound, HF-Lung
+        - Patient-aware feature alignment and breathing-cycle multi-cycle learning
+    - title: Sound Event Detection (SED)
+      items:
+        - DCASE challenge submissions (2026 Tasks 1, 2, 4, 7)
+        - Pediatric event detection (cry, cough, sneeze) for home monitoring
+    - title: Edge AI / On-device Audio ML
+      items:
+        - Lightweight (80KB) audio classifiers for MCU on-device inference
+        - ESP32-S3 firmware integration with multi-microphone arrays
+    - title: Multimodal Health AI
+      items:
+        - Smartphone-based self-auscultation (iMedic, CHI 2025)
+        - Non-contact home respiratory monitoring for infants and seniors
 
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
-      description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
+- title: Selected Publications
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: Smartphone-based Abnormal Lung Sound Detection
+      institution: IEEE Journal of Biomedical and Health Informatics (JBHI) · Under Review
+      year: 2026
+    - title: "PC-MCL: Patient-aware Multi-Cycle Contrastive Learning for Respiratory Sound Classification"
+      institution: IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)
+      year: 2026
+    - title: "PAFA: Patient-Aware Feature Alignment for Respiratory Sound Analysis"
+      institution: INTERSPEECH
+      year: 2025
+    - title: "iMedic: Smartphone-based Self-Auscultation for Pediatric Lung Sound Screening"
+      institution: ACM CHI Conference on Human Factors in Computing Systems
+      year: 2025
+    - title: Knowledge Distillation-based Respiratory Sound Classification
+      institution: IEEE Open Journal of Engineering in Medicine and Biology (OJEMB)
+      year: 2024
+
+- title: Challenge Submissions
+  type: time_table
+  contents:
+    - title: DCASE 2026 Challenge — Tasks 1, 2, 4, 7
+      institution: Detection and Classification of Acoustic Scenes and Events
+      year: 2026
+      description:
+        - Main contributor on Task 2 (Noise-aware Unsupervised Anomalous Sound Detection) and Task 4 (Spatial Semantic Segmentation)
+        - Co-author on Task 1 (Heterogeneous Audio Classification) and Task 7 (Domain-Agnostic Incremental Learning)
+        - Results to be announced 2026-06-30
+
+- title: Patents
+  type: time_table
+  contents:
+    - title: Knowledge Propagation Network-based Respiratory Sound Classification
+      institution: Registered (Korea)
+      year: 2024
+    - title: Mobile Device-based Respiratory Sound Classification
+      institution: Registered (Korea) · Technology-transferred to MediSensing Inc.
+      year: 2025
+    - title: 4 additional patent applications (Patient Alignment, Breathing-Cycle Transfer, Clinical Decision Support, etc.)
+      institution: Filed (Korea)
+      year: 2026
 
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
+    - year: 2026
       items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
+        - AI Seoul Future Talent Doctoral Scholarship — Seoul Future Talent Foundation
+    - year: 2026
       items:
-        - Max Planck Medal
+        - Selected — TechCore Program (Korean Government Entrepreneurship Initiative)
 
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Topic 1.
-      items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
-
-- title: Other Interests
+- title: Service to Community
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - Reviewer — IEEE ICASSP 2026 (International Conference on Acoustics, Speech and Signal Processing)
+
+- title: Technical Skills
+  type: nested_list
+  contents:
+    - title: Programming
+      items:
+        - Python, C / C++
+    - title: AI / ML Frameworks
+      items:
+        - PyTorch, TensorFlow
+    - title: Audio / Signal Processing
+      items:
+        - torchaudio, librosa
+    - title: Hardware / Embedded
+      items:
+        - ESP32-S3, KiCad (learning)
+        - ESP-IDF, TensorFlow Lite Micro
+    - title: App / Backend
+      items:
+        - FastAPI, Firebase
+    - title: Infra / DevOps
+      items:
+        - Docker, Linux, NAS / AWS, Git / GitHub
+
+- title: Online Presence
+  type: list
+  contents:
+    - <u>Portfolio&#58;</u> <a href="https://wa976.github.io/">wa976.github.io</a>
+    - <u>Google Scholar&#58;</u> <a href="https://scholar.google.com/citations?user=BqS-vtAAAAAJ">Seunggyu Jeong</a>
+    - <u>LinkedIn&#58;</u> <a href="https://www.linkedin.com/in/seung-gyu-jeong-wa9433/">linkedin.com/in/seung-gyu-jeong-wa9433</a>
