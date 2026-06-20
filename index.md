@@ -181,6 +181,9 @@ title: Seunggyu Jeong
     <h2 id="challenges">Challenge Submissions</h2>
     <ul>
       <li>
+        INTERSPEECH 2026 NeckVibe Challenge — Detection of Phonotraumatic Vocal Hyperfunction (PVH)
+      </li>
+      <li>
         DCASE 2025 Challenge — Task 1 (Low-Complexity Acoustic Scene Classification)
       </li>
     </ul>
