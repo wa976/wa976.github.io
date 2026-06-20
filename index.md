@@ -118,62 +118,62 @@ title: Seunggyu Jeong
 
     <p>
       <i>CHI 2026</i> —
-      <span class="pub-title">Reading the Mood Behind Words: Integrating Prosody-Derived Emotional Context into Socially Responsive VR Agents</span>
-      (SY Jeong, YS Na, SG Jeong, JW Jeong, SE Kim)
+      Reading the Mood Behind Words: Integrating Prosody-Derived Emotional Context into Socially Responsive VR Agents
+      (SY Jeong, YS Na, <b>SG Jeong</b>, JW Jeong, SE Kim)
     </p>
 
     <p>
       <i>ICASSP 2026</i> —
-      <span class="pub-title">PC-MCL: Patient-Consistent Multi-Cycle Learning With Multi-Label Bias Correction for Respiratory Sound Classification</span>
-      (SG Jeong, SE Kim)
+      PC-MCL: Patient-Consistent Multi-Cycle Learning With Multi-Label Bias Correction for Respiratory Sound Classification
+      (<b>SG Jeong</b>, SE Kim)
     </p>
 
     <p>
       <i>INTERSPEECH 2025</i> —
-      <span class="pub-title">Patient-Aware Feature Alignment for Robust Lung Sound Classification: Cohesion-Separation and Global Alignment Losses</span>
-      (SG Jeong, SE Kim)
+      Patient-Aware Feature Alignment for Robust Lung Sound Classification: Cohesion-Separation and Global Alignment Losses
+      (<b>SG Jeong</b>, SE Kim)
     </p>
 
     <p>
       <i>CHI 2025</i> —
-      <span class="pub-title">iMedic: Towards Smartphone-based Self-Auscultation Tool for AI-Powered Pediatric Respiratory Assessment</span>
-      (SG Jeong, SW Nam, SK Jung, SE Kim)
+      iMedic: Towards Smartphone-based Self-Auscultation Tool for AI-Powered Pediatric Respiratory Assessment
+      (<b>SG Jeong</b>, SW Nam, SK Jung, SE Kim)
     </p>
 
     <p>
       <i>DCASE 2025 Task 1 (arXiv)</i> —
-      <span class="pub-title">Adaptive Knowledge Distillation using a Device-Aware Teacher for Low-Complexity Acoustic Scene Classification</span>
-      (SG Jeong, SE Kim)
+      Adaptive Knowledge Distillation using a Device-Aware Teacher for Low-Complexity Acoustic Scene Classification
+      (<b>SG Jeong</b>, SE Kim)
     </p>
 
     <p>
       <i>ITC-CSCC 2024</i> —
-      <span class="pub-title">Patient Domain Supervised Contrastive Learning for Lung Sound Classification Using Mobile Phone</span>
-      (SG Jeong, SE Kim)
+      Patient Domain Supervised Contrastive Learning for Lung Sound Classification Using Mobile Phone
+      (<b>SG Jeong</b>, SE Kim)
     </p>
 
     <p>
       <i>한국전기전자학회 학술대회, 2025 (우수논문상)</i> —
-      <span class="pub-title">오디오 분리 기법을 이용한 스마트폰 기반 폐음 분류의 소음강건성 향상 연구</span>
-      (정승규, 김성은)
+      오디오 분리 기법을 이용한 스마트폰 기반 폐음 분류의 소음강건성 향상 연구
+      (<b>정승규</b>, 김성은)
     </p>
 
     <p>
       <i>한국통신학회 학술대회논문집, 2025</i> —
-      <span class="pub-title">CRNN 기반 사운드 이벤트 검출을 통한 스마트 양봉 위험 관리 시스템</span>
-      (정승규, 김성은)
+      CRNN 기반 사운드 이벤트 검출을 통한 스마트 양봉 위험 관리 시스템
+      (<b>정승규</b>, 김성은)
     </p>
 
     <p>
       <i>전자공학회지, 53-62, 2025</i> —
-      <span class="pub-title">차세대 뉴로모픽 컴퓨팅의 핵심, 스파이킹 뉴럴 네트워크: 최신 모델 연구 동향</span>
-      (임진교, 정승규, 김성은)
+      차세대 뉴로모픽 컴퓨팅의 핵심, 스파이킹 뉴럴 네트워크: 최신 모델 연구 동향
+      (임진교, <b>정승규</b>, 김성은)
     </p>
 
     <p>
       <i>한국통신학회 학술대회논문집, 2023</i> —
-      <span class="pub-title">Audio Spectrogram Transformer를 이용한 폐음 기반 호흡기 질환 분류에 관한 연구</span>
-      (정승규, 김성은)
+      Audio Spectrogram Transformer를 이용한 폐음 기반 호흡기 질환 분류에 관한 연구
+      (<b>정승규</b>, 김성은)
     </p>
 
     <hr class="section-divider" />
@@ -181,7 +181,7 @@ title: Seunggyu Jeong
     <h2 id="challenges">Challenge Submissions</h2>
     <ul>
       <li>
-        DCASE 2026 Challenge — Tasks 1, 2, 4, 7 (Detection and Classification of Acoustic Scenes and Events) — submitted 2026-06-16, results expected 2026-06-30
+        DCASE 2025 Challenge — Task 1 (Low-Complexity Acoustic Scene Classification)
       </li>
     </ul>
 
@@ -189,9 +189,7 @@ title: Seunggyu Jeong
 
     <h2 id="patents">Patents</h2>
     <ul>
-      <li>이동 단말기 기반의 폐음 분류 방법 및 시스템 — Registered (Korea), Technology-transferred to MediSensing Inc.</li>
-      <li>Knowledge Propagation Network-based Respiratory Sound Classification — Registered (Korea)</li>
-      <li>4 additional patent applications filed in 2026 (patient alignment, breathing-cycle transfer, clinical decision support, etc.)</li>
+      <li>이동 단말기 기반의 폐음 분류 방법 및 시스템</li>
     </ul>
 
     <hr class="section-divider" />
@@ -217,7 +215,7 @@ title: Seunggyu Jeong
       <li><span class="skill-cat">Programming</span> — Python, C / C++</li>
       <li><span class="skill-cat">AI / ML Frameworks</span> — PyTorch, TensorFlow</li>
       <li><span class="skill-cat">Audio / Signal Processing</span> — torchaudio, librosa</li>
-      <li><span class="skill-cat">Hardware / Embedded</span> — ESP32-S3, KiCad (learning), ESP-IDF, TensorFlow Lite Micro</li>
+      <li><span class="skill-cat">Hardware / Embedded</span> — ESP32-S3, KiCad, ESP-IDF, TensorFlow Lite Micro</li>
       <li><span class="skill-cat">App / Backend</span> — FastAPI, Firebase</li>
       <li><span class="skill-cat">Infra / DevOps</span> — Docker, Linux, NAS / AWS, Git / GitHub</li>
     </ul>
@@ -235,8 +233,7 @@ title: Seunggyu Jeong
     <h2 id="projects">Research Projects</h2>
     <ul>
       <li>[MediSensing] iMedic Development (May 2024 ~ Dec. 2024)</li>
-      <li>[MediSensing × Hanil Electric] AI-powered Digital Stethoscope (2026 ~ Present)</li>
-      <li>[MediSensing] Dadok — Non-contact Home Respiratory Monitor (2026 ~ Present)</li>
+      <li>[MediSensing] Dadok — Baby Sound (Sleep, Breath) Monitor (2026 ~ Present)</li>
     </ul>
   </div>
 
