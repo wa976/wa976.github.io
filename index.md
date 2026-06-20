@@ -82,11 +82,11 @@ title: Seunggyu Jeong
 
     <h2 id="research-interests">Research Interests</h2>
     <ul>
-      <li>Respiratory Sound Analysis — pediatric lung sound classification, cross-device generalization</li>
-      <li>Domain Generalization for Audio AI — LODO across ICBHI, SPRSound, HF-Lung</li>
-      <li>Sound Event Detection (SED) — DCASE challenges, home audio monitoring</li>
-      <li>Edge AI / On-device Audio ML — lightweight (~80KB) MCU inference</li>
-      <li>Multimodal Health AI — smartphone auscultation, non-contact home respiratory monitoring</li>
+      <li>Respiratory Sound Analysis</li>
+      <li>Domain Generalization for Audio AI</li>
+      <li>Sound Event Detection (SED)</li>
+      <li>Edge AI / On-device Audio ML</li>
+      <li>Multimodal Health AI</li>
     </ul>
 
     <hr class="section-divider" />
