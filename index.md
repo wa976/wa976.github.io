@@ -238,7 +238,6 @@ title: Seunggyu Jeong
       <li>2026 — <b>1st Place</b>, NeckVibe Challenge NPVH Detection (AUC 0.861), INTERSPEECH 2026</li>
       <li>2026 — <b>3rd Place</b>, NeckVibe Challenge PVH Detection (AUC 0.891), INTERSPEECH 2026</li>
       <li>2026 — Selected, TeX-Corps 2026 Cohort (Korean Government Lab-based Startup Program)</li>
-      <li>2024 ~ 2026 — SEOULTECH Future Talent Scholarship (5 consecutive semesters)</li>
       <li>2025 — Best Paper Award (우수논문상), Korean Institute of Electrical and Electronic Engineers (한국전기전자학회) Annual Conference</li>
     </ul>
 
