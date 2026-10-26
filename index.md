@@ -82,10 +82,10 @@ title: Seunggyu Jeong
 
     <h2 id="research-interests">Research Interests</h2>
     <ul>
-      <li>Respiratory Sound Analysis</li>
-      <li>Domain Generalization for Audio AI</li>
+      <li>Body Sound Analysis (Lung Sounds, Cough, Voice)</li>
+      <li>Domain Generalization &amp; Adaptation for Medical Audio</li>
+      <li>On-device Audio &amp; Speech AI (Microcontrollers / Edge)</li>
       <li>Sound Event Detection (SED)</li>
-      <li>Edge AI / On-device Audio ML</li>
       <li>Multimodal Health AI</li>
     </ul>
 
@@ -94,10 +94,11 @@ title: Seunggyu Jeong
     <h2 id="education">Education</h2>
     <ul>
       <li>
-        Ph.D. in Department of Applied Artificial Intelligence, SEOULTECH (Mar. 2026 ~ Present)
+        Ph.D. in Department of Applied Artificial Intelligence, SEOULTECH (Mar. 2026 ~ Present) — Advisor: Prof. Seong-Eun Kim
       </li>
       <li>
-        M.S. in Department of Applied Artificial Intelligence, SEOULTECH (Mar. 2024 ~ Feb. 2026)
+        M.S. in Department of Applied Artificial Intelligence, SEOULTECH (Mar. 2024 ~ Feb. 2026)<br />
+        Thesis: An Artificial Intelligence System for Pediatric Respiratory Sound Screening Using Smartphone Microphones
       </li>
       <li>
         B.S. in Department of Electronic Engineering, SEOULTECH (Mar. 2017 ~ Feb. 2024)
@@ -108,18 +109,37 @@ title: Seunggyu Jeong
 
     <h2 id="experience">Experience</h2>
     <ul>
-      <li>Co-Founder & CTO at MediSensing Inc. (May 2024 ~ Present)</li>
-      <li>TechCore Program — 2026 Cohort</li>
+      <li>Co-Founder &amp; CTO, MediSensing Inc. (May 2024 ~ Present)</li>
+      <li>Teaching Assistant, Artificial Intelligence Systems (undergraduate), SEOULTECH (Fall 2026) — Lecture: On-Device LLMs</li>
+      <li>TeX-Corps 2026 Cohort — Lab-based startup customer discovery program, incl. I-Corps field training in Washington, D.C. (Apr. 2026 ~ Jul. 2026)</li>
+      <li>Visiting Research Intern, DataX Lab (Prof. Mingon Kang), University of Nevada, Las Vegas (Dec. 2024 ~ Jan. 2025)</li>
     </ul>
 
     <hr class="section-divider" />
 
     <h2 id="publications">Publications</h2>
 
+    <h3>Journal Articles</h3>
+
     <p>
-      <i>CHI 2026</i> —
-      Reading the Mood Behind Words: Integrating Prosody-Derived Emotional Context into Socially Responsive VR Agents
-      (SY Jeong, YS Na, <b>SG Jeong</b>, JW Jeong, SE Kim)
+      <i>IEEE Journal of Biomedical and Health Informatics (JBHI), 2026 (Early Access)</i> —
+      Smartphone-Based Detection of Abnormal Lung Sounds Using Domain-Adaptive Deep Learning
+      (<b>SG Jeong</b>, SW Nam, SK Jung, SE Kim)
+      [<a href="https://doi.org/10.1109/JBHI.2026.3718492" target="_blank">DOI</a>]
+    </p>
+
+    <h3>International Conferences</h3>
+
+    <p>
+      <i>INTERSPEECH 2026</i> —
+      Attention Based Multiple Instance Learning With Tabular Stacking for Ambulatory Detection of PVH and NPVH
+      (K Yerpude, <b>SG Jeong</b>, SE Kim)
+    </p>
+
+    <p>
+      <i>ICML 2026</i> —
+      Rethinking Attention in Spiking Transformers: Overcoming Density Bias with Set Similarity
+      (JG Lim, <b>SG Jeong</b>, SE Kim)
     </p>
 
     <p>
@@ -129,13 +149,19 @@ title: Seunggyu Jeong
     </p>
 
     <p>
+      <i>CHI 2026 Extended Abstracts</i> —
+      Reading the Mood Behind Words: Integrating Prosody-Derived Emotional Context into Socially Responsive VR Agents
+      (SY Jeong, YS Na, <b>SG Jeong</b>, JW Jeong, SE Kim)
+    </p>
+
+    <p>
       <i>INTERSPEECH 2025</i> —
       Patient-Aware Feature Alignment for Robust Lung Sound Classification: Cohesion-Separation and Global Alignment Losses
       (<b>SG Jeong</b>, SE Kim)
     </p>
 
     <p>
-      <i>CHI 2025</i> —
+      <i>CHI 2025 Extended Abstracts</i> —
       iMedic: Towards Smartphone-based Self-Auscultation Tool for AI-Powered Pediatric Respiratory Assessment
       (<b>SG Jeong</b>, SW Nam, SK Jung, SE Kim)
     </p>
@@ -151,6 +177,8 @@ title: Seunggyu Jeong
       Patient Domain Supervised Contrastive Learning for Lung Sound Classification Using Mobile Phone
       (<b>SG Jeong</b>, SE Kim)
     </p>
+
+    <h3>Domestic</h3>
 
     <p>
       <i>한국전기전자학회 학술대회, 2025 (우수논문상)</i> —
@@ -178,10 +206,13 @@ title: Seunggyu Jeong
 
     <hr class="section-divider" />
 
-    <h2 id="challenges">Challenge Submissions</h2>
+    <h2 id="challenges">Challenges</h2>
     <ul>
       <li>
-        INTERSPEECH 2026 NeckVibe Challenge — <b>1st Place</b> (NPVH detection, AUC 0.861) · <b>3rd Place</b> (PVH detection, AUC 0.891)
+        INTERSPEECH 2026 NeckVibe Challenge — <b>1st Place</b> (NPVH detection, AUC 0.861) · <b>3rd Place</b> (PVH detection, AUC 0.891) — Team SEOULTECH × MediSensing (supervising role)
+      </li>
+      <li>
+        DCASE 2026 Challenge — <b>2nd Place</b> (team ranking), Task 3 (Semantic Acoustic Imaging)
       </li>
       <li>
         DCASE 2025 Challenge — Task 1 (Low-Complexity Acoustic Scene Classification)
@@ -192,17 +223,22 @@ title: Seunggyu Jeong
 
     <h2 id="patents">Patents</h2>
     <ul>
-      <li>이동 단말기 기반의 폐음 분류 방법 및 시스템</li>
+      <li>
+        이동 단말기 기반의 폐음 분류 방법 및 시스템 (Mobile Terminal-Based Lung Sound Classification Method and System) — KR 10-2949975, Registered Apr. 2026 (SE Kim, <b>SG Jeong</b>)
+      </li>
     </ul>
 
     <hr class="section-divider" />
 
-    <h2 id="awards">Awards & Honors</h2>
+    <h2 id="awards">Awards &amp; Honors</h2>
     <ul>
+      <li>2026 — <b>Grand Prize</b>, Graduate Student Startup Club Competition, 2026 Lab-Specialized Startup-Leading University Program (NRF · COMPA)</li>
+      <li>2026 — AI Seoul Future Talent Doctoral Scholarship, Seoul Future Talent Foundation — selected as Outstanding Researcher</li>
+      <li>2026 — <b>2nd Place</b>, DCASE 2026 Challenge Task 3 (Semantic Acoustic Imaging)</li>
       <li>2026 — <b>1st Place</b>, NeckVibe Challenge NPVH Detection (AUC 0.861), INTERSPEECH 2026</li>
       <li>2026 — <b>3rd Place</b>, NeckVibe Challenge PVH Detection (AUC 0.891), INTERSPEECH 2026</li>
-      <li>2026 — AI Seoul Future Talent Doctoral Scholarship, Seoul Future Talent Foundation</li>
-      <li>2026 — Selected, TechCore Program (Korean Government Entrepreneurship Initiative)</li>
+      <li>2026 — Selected, TeX-Corps 2026 Cohort (Korean Government Lab-based Startup Program)</li>
+      <li>2024 ~ 2026 — SEOULTECH Future Talent Scholarship (5 consecutive semesters)</li>
       <li>2025 — Best Paper Award (우수논문상), Korean Institute of Electrical and Electronic Engineers (한국전기전자학회) Annual Conference</li>
     </ul>
 
@@ -210,7 +246,8 @@ title: Seunggyu Jeong
 
     <h2 id="service">Service to Community</h2>
     <ul>
-      <li>Reviewer — IEEE ICASSP 2026 (International Conference on Acoustics, Speech and Signal Processing)</li>
+      <li>Reviewer — IEEE ICASSP 2027 (International Conference on Acoustics, Speech and Signal Processing)</li>
+      <li>Reviewer — IEEE ICASSP 2026</li>
     </ul>
 
     <hr class="section-divider" />
@@ -237,9 +274,11 @@ title: Seunggyu Jeong
 
     <h2 id="projects">Research Projects</h2>
     <ul>
+      <li>[MediSensing] Dadok — AI Parenting Agent App (iOS, 2026 ~ Present)</li>
       <li>[MediSensing] iMedic Development (May 2024 ~ Dec. 2024)</li>
-      <li>[MediSensing] Dadok — Baby Sound (Sleep, Breath) Monitor (2026 ~ Present)</li>
     </ul>
+
+    <p style="margin-top: 60px; color: #888; font-size: 0.9em;">Last updated: Oct. 2026</p>
   </div>
 
   <div
