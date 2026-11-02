@@ -9,28 +9,37 @@ body_class: page-project
 {% assign next_i = idx | plus: 1 %}
 
 <article class="wrap project">
-  <a class="back" href="{{ '/projects/' | relative_url }}">← All projects</a>
+  <a class="back" href="{{ '/projects/' | relative_url }}">{% include ui.html k="back_projects" %}</a>
 
   <header class="project-head">
     <div class="badges">
-      <span class="badge venue">{{ p.venue_long | default: p.venue }}</span>
-      {% if p.award %}<span class="badge award">{{ p.award }}</span>{% endif %}
-      {% if p.role %}<span class="badge role">{{ p.role }}</span>{% endif %}
+      {% assign _v = p.venue_long | default: p.venue %}{% assign _vk = p.venue_long_ko | default: p.venue_ko %}
+      <span class="badge venue">{% include t.html en=_v ko=_vk %}</span>
+      {% if p.award %}<span class="badge award">{% include t.html en=p.award ko=p.award_ko %}</span>{% endif %}
+      {% if p.role %}<span class="badge role">{% include t.html en=p.role ko=p.role_ko %}</span>{% endif %}
     </div>
-    <h1>{{ p.title }}</h1>
-    <p class="authors">{{ p.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-    <p class="lede">{{ p.tagline }}</p>
-    <div class="links">
-      {% for l in p.links %}
-        {% assign key = l[0] %}<a class="btn" href="{{ l[1] | relative_url }}" target="_blank" rel="noopener">{{ site.data.link_labels[key] | default: key }}</a>
-      {% endfor %}
-    </div>
+    <h1>{% include t.html en=p.title ko=p.title_ko %}</h1>
+    {% if p.authors and p.authors != "" %}<p class="authors">{{ p.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>{% endif %}
+    <p class="lede">{% include t.html en=p.tagline ko=p.tagline_ko %}</p>
+    {% if p.links %}
+      <div class="links">
+        {% for l in p.links %}<a class="btn" href="{{ l[1] | relative_url }}" target="_blank" rel="noopener">{% assign _lk = l[0] %}{% include link-label.html key=_lk %}</a>{% endfor %}
+      </div>
+    {% endif %}
   </header>
 
-  {% if p.metrics %}
+  {% if p.facts %}
+    <dl class="facts">
+      {% for f in p.facts %}
+        <div><dt>{% include t.html en=f.k ko=f.k_ko %}</dt><dd>{% include t.html en=f.v ko=f.v_ko %}</dd></div>
+      {% endfor %}
+    </dl>
+  {% endif %}
+
+  {% if p.metrics and p.metrics.size > 0 %}
     <section class="metrics" aria-label="Key numbers">
       {% for m in p.metrics %}
-        <div class="metric"><span class="metric-value">{{ m.value }}</span><span class="metric-label">{{ m.label }}</span></div>
+        <div class="metric"><span class="metric-value">{% include t.html en=m.value ko=m.value_ko %}</span><span class="metric-label">{% include t.html en=m.label ko=m.label_ko %}</span></div>
       {% endfor %}
     </section>
   {% endif %}
@@ -38,20 +47,25 @@ body_class: page-project
   {% assign hero = p.figures | first %}
   {% if hero %}
     <figure class="fig hero-fig">
-      <button type="button" class="fig-frame" data-zoom aria-label="Enlarge figure"><img src="{{ hero.src | relative_url }}" alt="{{ hero.caption | escape }}" /></button>
-      <figcaption>{{ hero.caption }}</figcaption>
+      <button type="button" class="fig-frame{% if hero.photo %} is-photo{% endif %}" data-zoom aria-label="Enlarge figure"><img src="{{ hero.src | relative_url }}" alt="{{ hero.caption | escape }}" /></button>
+      <figcaption>{% include t.html en=hero.caption ko=hero.caption_ko %}</figcaption>
     </figure>
   {% endif %}
 
   <div class="project-body">
+    {% if p.sections %}
+      {% for s in p.sections %}
+        <section><h2>{% include t.html en=s.label ko=s.label_ko %}</h2>{% include t.html en=s.text ko=s.text_ko md=true tag="div" %}</section>
+      {% endfor %}
+    {% endif %}
     {% if p.problem %}
-      <section><h2>Problem</h2>{{ p.problem | markdownify }}</section>
+      <section><h2>{% include ui.html k="problem" %}</h2>{% include t.html en=p.problem ko=p.problem_ko md=true tag="div" %}</section>
     {% endif %}
     {% if p.approach %}
-      <section><h2>Approach</h2>{{ p.approach | markdownify }}</section>
+      <section><h2>{% include ui.html k="approach" %}</h2>{% include t.html en=p.approach ko=p.approach_ko md=true tag="div" %}</section>
     {% endif %}
     {% if p.result %}
-      <section><h2>Results</h2>{{ p.result | markdownify }}
+      <section><h2>{% include ui.html k="results" %}</h2>{% include t.html en=p.result ko=p.result_ko md=true tag="div" %}
         {% for t in p.tables %}
           <div class="table-wrap">
             <table>
@@ -61,41 +75,34 @@ body_class: page-project
               </tbody>
             </table>
           </div>
-          {% if t.caption %}<p class="table-caption">{{ t.caption }}</p>{% endif %}
+          {% if t.caption %}<p class="table-caption">{% include t.html en=t.caption ko=t.caption_ko %}</p>{% endif %}
         {% endfor %}
       </section>
-    {% endif %}
-    {% if p.extra %}
-      {% for s in p.extra %}<section><h2>{{ s.label }}</h2>{{ s.text | markdownify }}</section>{% endfor %}
     {% endif %}
 
     {% if p.figures.size > 1 %}
       <section class="more-figs">
-        <h2>Figures</h2>
+        <h2>{% include ui.html k="figures" %}</h2>
         <div class="fig-grid">
           {% for f in p.figures offset: 1 %}
             <figure class="fig">
-              <button type="button" class="fig-frame" data-zoom aria-label="Enlarge figure"><img src="{{ f.src | relative_url }}" alt="{{ f.caption | escape }}" loading="lazy" /></button>
-              <figcaption>{{ f.caption }}</figcaption>
+              <button type="button" class="fig-frame{% if f.photo %} is-photo{% endif %}" data-zoom aria-label="Enlarge figure"><img src="{{ f.src | relative_url }}" alt="{{ f.caption | escape }}" loading="lazy" /></button>
+              <figcaption>{% include t.html en=f.caption ko=f.caption_ko %}</figcaption>
             </figure>
           {% endfor %}
         </div>
       </section>
     {% endif %}
 
-    {% if p.note %}<p class="note">{{ p.note }}</p>{% endif %}
-
-    {% if p.topics %}
-      <p class="tags">{% for t in p.topics %}{% assign tl = site.data.topics | where: "key", t | first %}<span class="tag">{{ tl.label | default: t }}</span>{% endfor %}</p>
-    {% endif %}
+    {% if p.note %}<p class="note">{% include t.html en=p.note ko=p.note_ko %}</p>{% endif %}
   </div>
 
   <nav class="pager" aria-label="More projects">
     {% if idx > 0 %}{% assign q = all[prev_i] %}
-      <a class="pager-prev" href="{{ '/projects/' | append: q.slug | append: '/' | relative_url }}"><span>← Previous</span><strong>{{ q.short }}</strong></a>
+      <a class="pager-prev" href="{{ '/projects/' | append: q.slug | append: '/' | relative_url }}"><span>{% include ui.html k="previous" %}</span><strong>{% include t.html en=q.short ko=q.short_ko %}</strong></a>
     {% else %}<span></span>{% endif %}
     {% if next_i < all.size %}{% assign q = all[next_i] %}
-      <a class="pager-next" href="{{ '/projects/' | append: q.slug | append: '/' | relative_url }}"><span>Next →</span><strong>{{ q.short }}</strong></a>
+      <a class="pager-next" href="{{ '/projects/' | append: q.slug | append: '/' | relative_url }}"><span>{% include ui.html k="next" %}</span><strong>{% include t.html en=q.short ko=q.short_ko %}</strong></a>
     {% endif %}
   </nav>
 </article>

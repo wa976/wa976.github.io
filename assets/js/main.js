@@ -12,7 +12,29 @@
     });
   }
 
-  // Project filter chips. The choice is kept in the URL hash-free query (?topic=)
+  // Language toggle (initial language is set inline in <head>).
+  var langBtn = document.querySelector(".lang-toggle");
+  if (langBtn) {
+    langBtn.addEventListener("click", function () {
+      var root = document.documentElement;
+      var next = root.getAttribute("data-lang") === "ko" ? "en" : "ko";
+      root.setAttribute("data-lang", next);
+      root.setAttribute("lang", next);
+      localStorage.setItem("lang", next);
+      var url = new URL(window.location);
+      if (url.searchParams.has("lang")) { url.searchParams.set("lang", next); history.replaceState(null, "", url); }
+    });
+  }
+
+  // "Show all" for long lists (news).
+  document.querySelectorAll(".more-toggle").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll("." + btn.dataset.more).forEach(function (el) { el.hidden = false; });
+      btn.remove();
+    });
+  });
+
+  // Project filter chips. The choice is kept in the query string (?type=)
   // so a filtered view can be shared.
   document.querySelectorAll(".filters").forEach(function (bar) {
     var scope = bar.parentElement;
@@ -21,7 +43,7 @@
     function apply(topic) {
       chips.forEach(function (c) { c.classList.toggle("is-active", c.dataset.filter === topic); });
       cards.forEach(function (card) {
-        var topics = (card.dataset.topics || "").split(" ");
+        var topics = (card.dataset.types || "").split(" ");
         card.classList.toggle("is-hidden", topic !== "all" && topics.indexOf(topic) === -1);
       });
     }
@@ -29,12 +51,12 @@
       chip.addEventListener("click", function () {
         apply(chip.dataset.filter);
         var url = new URL(window.location);
-        if (chip.dataset.filter === "all") url.searchParams.delete("topic");
-        else url.searchParams.set("topic", chip.dataset.filter);
+        if (chip.dataset.filter === "all") url.searchParams.delete("type");
+        else url.searchParams.set("type", chip.dataset.filter);
         history.replaceState(null, "", url);
       });
     });
-    var initial = new URL(window.location).searchParams.get("topic");
+    var initial = new URL(window.location).searchParams.get("type");
     if (initial && bar.querySelector('[data-filter="' + initial + '"]')) apply(initial);
   });
 

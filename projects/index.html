@@ -4,9 +4,9 @@ title: Projects
 body_class: page-projects
 ---
 <section class="wrap block first">
-  <a class="back" href="{{ '/' | relative_url }}">← Home</a>
-  <h1 class="page-title">Projects</h1>
-  <p class="block-intro">Each page covers one paper or challenge entry: the problem, what we built, the numbers, and the figures.</p>
+  <a class="back" href="{{ '/' | relative_url }}">{% include ui.html k="back_home" %}</a>
+  <h1 class="page-title">{% include ui.html k="projects" %}</h1>
+  <p class="block-intro">{% include ui.html k="projects_intro" %}</p>
   {% include project-filter.html %}
   <div class="grid">
     {% for p in site.data.projects %}

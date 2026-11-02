@@ -7,12 +7,15 @@ body_class: page-home
 <section id="about" class="wrap hero">
   <img class="avatar" src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="Seunggyu Jeong" width="200" height="200" />
   <div class="hero-text">
-    <h1>{{ site.author.name }}</h1>
+    <h1>{% include t.html en=site.author.name ko=cv.name_ko %}<span class="name-alt i18n" lang="ko">{{ site.author.name }}</span></h1>
     <ul class="roles">
-      {% for r in cv.roles %}<li>{{ r }}</li>{% endfor %}
+      {% for r in cv.roles %}<li>{% include t.html en=r.en ko=r.ko %}</li>{% endfor %}
     </ul>
-    <div class="bio">{{ cv.bio | markdownify }}</div>
-    <p class="interests">{% for i in cv.interests %}<span class="tag">{{ i }}</span>{% endfor %}</p>
+    <p class="bio-lead">{% include t.html en=cv.bio_lead.en ko=cv.bio_lead.ko %}</p>
+    <div class="bio">
+      {% for b in cv.bio %}<p>{% include t.html en=b.en ko=b.ko %}</p>{% endfor %}
+    </div>
+    <p class="interests">{% for i in cv.interests %}<span class="tag">{% include t.html en=i.en ko=i.ko %}</span>{% endfor %}</p>
     <div class="links">
       <a class="btn btn-primary" href="mailto:{{ site.author.email }}">Email</a>
       <a class="btn" href="{{ site.author.scholar }}" target="_blank" rel="noopener">Google Scholar</a>
@@ -22,21 +25,33 @@ body_class: page-home
   </div>
 </section>
 
+<section class="wrap highlights" aria-label="Highlights">
+  {% for h in cv.highlights %}
+    <a class="highlight" href="{{ h.link | relative_url }}">
+      <span class="hl-value">{% include t.html en=h.value ko=h.value_ko %}</span>
+      <span class="hl-label">{% include t.html en=h.en ko=h.ko %}</span>
+    </a>
+  {% endfor %}
+</section>
+
 <section id="news" class="wrap block">
-  <h2>News</h2>
+  <h2>{% include ui.html k="news" %}</h2>
   <ul class="news">
     {% for n in cv.news %}
-      <li><time>{{ n.date }}</time><span>{{ n.text | markdownify | remove: '<p>' | remove: '</p>' }}</span></li>
+      <li{% if forloop.index > 6 %} class="news-more" hidden{% endif %}><time>{{ n.date }}</time><span>{% include t.html en=n.en ko=n.ko md="inline" %}</span></li>
     {% endfor %}
   </ul>
+  {% if cv.news.size > 6 %}
+    <button type="button" class="more-toggle" data-more="news-more"><span class="i18n" lang="en">Show all</span><span class="i18n" lang="ko">모두 보기</span></button>
+  {% endif %}
 </section>
 
 <section id="projects" class="wrap block">
   <div class="block-head">
-    <h2>Projects</h2>
-    <a class="see-all" href="{{ '/projects/' | relative_url }}">All projects →</a>
+    <h2>{% include ui.html k="projects" %}</h2>
+    <a class="see-all" href="{{ '/projects/' | relative_url }}">{% include ui.html k="all_projects" %}</a>
   </div>
-  <p class="block-intro">One page per paper or challenge entry: the problem, what we built, and the numbers.</p>
+  <p class="block-intro">{% include ui.html k="projects_intro" %}</p>
   {% include project-filter.html %}
   <div class="grid">
     {% for p in site.data.projects %}
@@ -45,10 +60,26 @@ body_class: page-home
   </div>
 </section>
 
+<section id="startup" class="wrap block">
+  <h2>{% include ui.html k="startup" %}</h2>
+  <p class="block-intro">{% include ui.html k="startup_intro" %}</p>
+  <ol class="journey">
+    {% for s in cv.startup %}
+      <li>
+        <time>{{ s.date }}</time>
+        <div>
+          <span class="journey-text">{% include t.html en=s.en ko=s.ko md="inline" %}</span>
+          {% if s.link %}<a class="journey-link" href="{{ s.link | relative_url }}">{% include ui.html k="read_more" %} →</a>{% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ol>
+</section>
+
 <section id="publications" class="wrap block">
-  <h2>Publications</h2>
+  <h2>{% include ui.html k="publications" %}</h2>
   {% for g in site.data.publications %}
-    <h3 class="group-title">{{ g.group }}</h3>
+    <h3 class="group-title">{% include t.html en=g.group ko=g.group_ko %}</h3>
     <ol class="pubs">
       {% for it in g.items %}
         <li class="pub">
@@ -60,10 +91,10 @@ body_class: page-home
               <span class="pub-title">{{ it.title }}</span>
             {% endif %}
             <span class="pub-authors">{{ it.authors | markdownify | remove: '<p>' | remove: '</p>' }}</span>
-            {% if it.note %}<span class="pub-note">{{ it.note }}</span>{% endif %}
+            {% if it.note %}<span class="pub-note">{% include t.html en=it.note ko=it.note_ko %}</span>{% endif %}
             <span class="pub-links">
-              {% if it.page %}<a href="{{ '/projects/' | append: it.page | append: '/' | relative_url }}">Project page</a>{% endif %}
-              {% for l in it.links %}{% assign key = l[0] %}<a href="{{ l[1] }}" target="_blank" rel="noopener">{{ site.data.link_labels[key] | default: key }}</a>{% endfor %}
+              {% if it.page %}<a href="{{ '/projects/' | append: it.page | append: '/' | relative_url }}"><span class="i18n" lang="en">Project page</span><span class="i18n" lang="ko">프로젝트 페이지</span></a>{% endif %}
+              {% for l in it.links %}<a href="{{ l[1] }}" target="_blank" rel="noopener">{% assign _lk = l[0] %}{% include link-label.html key=_lk %}</a>{% endfor %}
             </span>
           </div>
         </li>
@@ -74,47 +105,57 @@ body_class: page-home
 
 <section id="experience" class="wrap block two-col">
   <div>
-    <h2>Experience</h2>
+    <h2>{% include ui.html k="experience" %}</h2>
     <ul class="timeline">
       {% for e in cv.experience %}
-        <li><span class="when">{{ e.when }}</span><strong>{{ e.what }}</strong>{% if e.where %}<span class="where">{{ e.where }}</span>{% endif %}{% if e.detail %}<span class="detail">{{ e.detail }}</span>{% endif %}</li>
+        <li>
+          <span class="when">{% include t.html en=e.when ko=e.when_ko %}</span>
+          <strong>{% include t.html en=e.what ko=e.what_ko %}</strong>
+          {% if e.where %}<span class="where">{% include t.html en=e.where ko=e.where_ko %}</span>{% endif %}
+          {% if e.detail %}<span class="detail">{% include t.html en=e.detail ko=e.detail_ko %}</span>{% endif %}
+        </li>
       {% endfor %}
     </ul>
   </div>
   <div>
-    <h2>Education</h2>
+    <h2>{% include ui.html k="education" %}</h2>
     <ul class="timeline">
       {% for e in cv.education %}
-        <li><span class="when">{{ e.when }}</span><strong>{{ e.what }}</strong>{% if e.where %}<span class="where">{{ e.where }}</span>{% endif %}{% if e.detail %}<span class="detail">{{ e.detail }}</span>{% endif %}</li>
+        <li>
+          <span class="when">{% include t.html en=e.when ko=e.when_ko %}</span>
+          <strong>{% include t.html en=e.what ko=e.what_ko %}</strong>
+          {% if e.where %}<span class="where">{% include t.html en=e.where ko=e.where_ko %}</span>{% endif %}
+          {% if e.detail %}<span class="detail">{% include t.html en=e.detail ko=e.detail_ko %}</span>{% endif %}
+        </li>
       {% endfor %}
     </ul>
   </div>
 </section>
 
 <section id="awards" class="wrap block">
-  <h2>Awards &amp; Honors</h2>
+  <h2>{% include ui.html k="awards_long" %}</h2>
   <ul class="plain">
-    {% for a in cv.awards %}<li><time>{{ a.year }}</time><span>{{ a.text | markdownify | remove: '<p>' | remove: '</p>' }}</span></li>{% endfor %}
+    {% for a in cv.awards %}<li><time>{{ a.year }}</time><span>{% include t.html en=a.en ko=a.ko md="inline" %}</span></li>{% endfor %}
   </ul>
 </section>
 
 <section class="wrap block three-col">
   <div>
-    <h2>Patent</h2>
+    <h2>{% include ui.html k="patent" %}</h2>
     <ul class="plain-simple">
-      {% for x in cv.patents %}<li>{{ x | markdownify | remove: '<p>' | remove: '</p>' }}</li>{% endfor %}
+      {% for x in cv.patents %}<li>{% include t.html en=x.en ko=x.ko md="inline" %}</li>{% endfor %}
     </ul>
   </div>
   <div>
-    <h2>Service</h2>
+    <h2>{% include ui.html k="service" %}</h2>
     <ul class="plain-simple">
-      {% for x in cv.service %}<li>{{ x }}</li>{% endfor %}
+      {% for x in cv.service %}<li>{% include t.html en=x.en ko=x.ko %}</li>{% endfor %}
     </ul>
   </div>
   <div>
-    <h2>Skills</h2>
+    <h2>{% include ui.html k="skills" %}</h2>
     <dl class="skills">
-      {% for s in cv.skills %}<dt>{{ s.k }}</dt><dd>{{ s.v }}</dd>{% endfor %}
+      {% for s in cv.skills %}<dt>{% include t.html en=s.k ko=s.k_ko %}</dt><dd>{% include t.html en=s.v ko=s.v_ko %}</dd>{% endfor %}
     </dl>
   </div>
 </section>

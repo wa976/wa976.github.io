@@ -1,0 +1,13 @@
+{%- comment -%} Bilingual text. en= (required), ko= (optional), md=true|"inline", tag= (default span). {%- endcomment -%}
+{%- assign _tag = include.tag | default: "span" -%}
+{%- assign _en = include.en -%}
+{%- assign _ko = include.ko -%}
+{%- if include.md -%}
+  {%- assign _en = _en | markdownify -%}
+  {%- if _ko -%}{%- assign _ko = _ko | markdownify -%}{%- endif -%}
+  {%- if include.md == "inline" -%}
+    {%- assign _en = _en | remove: '<p>' | remove: '</p>' | strip -%}
+    {%- if _ko -%}{%- assign _ko = _ko | remove: '<p>' | remove: '</p>' | strip -%}{%- endif -%}
+  {%- endif -%}
+{%- endif -%}
+{%- if _ko and _ko != "" -%}<{{ _tag }} class="i18n" lang="en">{{ _en }}</{{ _tag }}><{{ _tag }} class="i18n" lang="ko">{{ _ko }}</{{ _tag }}>{%- else -%}{{ _en }}{%- endif -%}

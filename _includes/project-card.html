@@ -1,18 +1,21 @@
 {% assign p = include.p %}
-<a class="card" href="{{ '/projects/' | append: p.slug | append: '/' | relative_url }}" data-topics="{{ p.topics | join: ' ' }}">
+<a class="card" href="{{ '/projects/' | append: p.slug | append: '/' | relative_url }}" data-types="{{ p.type | join: ' ' }}">
   {% if p.thumb %}
-    <div class="card-thumb"><img src="{{ p.thumb | relative_url }}" alt="" loading="lazy" /></div>
+    <div class="card-thumb{% if p.thumb_photo %} is-photo{% endif %}"><img src="{{ p.thumb | relative_url }}" alt="" loading="lazy" /></div>
   {% else %}
-    <div class="card-thumb card-thumb-text"><span class="tt-venue">{{ p.venue }}</span><span class="tt-text">{{ p.thumb_text | default: p.short }}</span></div>
+    <div class="card-thumb card-thumb-text">
+      <span class="tt-venue">{% include t.html en=p.venue ko=p.venue_ko %}</span>
+      <span class="tt-text">{% assign _tt = p.thumb_text | default: p.short %}{% assign _ttk = p.thumb_text_ko | default: p.short_ko %}{% include t.html en=_tt ko=_ttk %}</span>
+    </div>
   {% endif %}
   <div class="card-body">
     <div class="badges">
-      <span class="badge venue">{{ p.venue }}</span>
-      {% if p.award %}<span class="badge award">{{ p.award_short | default: p.award }}</span>{% endif %}
+      <span class="badge venue">{% include t.html en=p.venue ko=p.venue_ko %}</span>
+      {% if p.award %}<span class="badge award">{% assign _a = p.award_short | default: p.award %}{% assign _ak = p.award_short_ko | default: p.award_ko %}{% include t.html en=_a ko=_ak %}</span>{% endif %}
     </div>
-    <h3>{{ p.short }}</h3>
-    <p class="card-title">{{ p.title }}</p>
-    <p class="card-tagline">{{ p.tagline }}</p>
-    <span class="card-more">Read more <span aria-hidden="true">→</span></span>
+    <h3>{% include t.html en=p.short ko=p.short_ko %}</h3>
+    <p class="card-title">{% include t.html en=p.title ko=p.title_ko %}</p>
+    <p class="card-tagline">{% include t.html en=p.tagline ko=p.tagline_ko %}</p>
+    <span class="card-more">{% include ui.html k="read_more" %} <span aria-hidden="true">→</span></span>
   </div>
 </a>

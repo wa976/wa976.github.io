@@ -1,8 +1,9 @@
-doi: Paper
-paper: Paper
-pdf: PDF
-arxiv: arXiv
-code: Code
-inference_code: Inference code
-results: Official results
-conference_page: Conference page
+doi: {en: "Paper", ko: "논문"}
+paper: {en: "Paper", ko: "논문"}
+pdf: {en: "PDF", ko: "PDF"}
+arxiv: {en: "arXiv", ko: "arXiv"}
+code: {en: "Code", ko: "코드"}
+inference_code: {en: "Inference code", ko: "추론 코드"}
+results: {en: "Official results", ko: "공식 결과"}
+conference_page: {en: "Conference page", ko: "학회 페이지"}
+app_store: {en: "App Store", ko: "App Store"}

@@ -2,22 +2,26 @@
 # `links` keys are labelled through _data/link_labels.yml.
 
 - group: Journal
+  group_ko: 저널
   items:
     - venue: IEEE JBHI 2026
       title: Smartphone-Based Detection of Abnormal Lung Sounds Using Domain-Adaptive Deep Learning
       authors: "**Seunggyu Jeong**, Sungwoo Nam, Seongkwan Jung, Seong-Eun Kim"
       note: IEEE Journal of Biomedical and Health Informatics (Early Access)
+      note_ko: IEEE Journal of Biomedical and Health Informatics (Early Access)
       page: jbhi-2026-smartphone-lung-sound
       links:
         doi: https://doi.org/10.1109/JBHI.2026.3718492
         code: https://github.com/wa976/smartphone-lung-sound-DA
 
 - group: International Conferences
+  group_ko: 국제 학회
   items:
     - venue: INTERSPEECH 2026
       title: Attention-Based Multiple Instance Learning with Tabular Stacking for Ambulatory Detection of PVH and NPVH
       authors: "Kiran Yerpude, **Seunggyu Jeong**, Seong-Eun Kim"
       note: NeckVibe Challenge — 1st place (tied) NPVH, 3rd place PVH
+      note_ko: NeckVibe 챌린지 — NPVH 공동 1위, PVH 3위
       page: neckvibe-interspeech2026
       links:
         paper: https://www.isca-archive.org/interspeech_2026/yerpude26_interspeech.html
@@ -61,11 +65,13 @@
         arxiv: https://arxiv.org/abs/2505.23132
 
 - group: Challenge Technical Reports
+  group_ko: 챌린지 기술 보고서
   items:
     - venue: DCASE 2026
       title: An Equirectangular Energy Field with Per-Location Class Coverage for Semantic Acoustic Imaging
       authors: "**Seunggyu Jeong**, Seong-Eun Kim"
       note: Task 3 — 2nd place (team ranking, Track A)
+      note_ko: Task 3 — 2위 (팀 순위, Track A)
       page: dcase2026-task3-semantic-acoustic-imaging
       links:
         paper: https://dcase.community/documents/challenge2026/technical_reports/DCASE2026_Jeong_144_t3.pdf
@@ -77,11 +83,13 @@
         arxiv: https://arxiv.org/abs/2509.09262
 
 - group: Domestic (Korean)
+  group_ko: 국내 학회·학회지
   items:
     - venue: KIEEE 2025
       title: 오디오 분리 기법을 이용한 스마트폰 기반 폐음 분류의 소음강건성 향상 연구
       authors: "**정승규**, 김성은"
-      note: Best Paper Award (우수논문상)
+      note: Best Paper Award
+      note_ko: 우수논문상
     - venue: KICS 2025
       title: CRNN 기반 사운드 이벤트 검출을 통한 스마트 양봉 위험 관리 시스템
       authors: "**정승규**, 김성은"

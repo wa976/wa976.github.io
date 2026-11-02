@@ -1,17 +1,22 @@
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
+    <a class="brand" href="{{ '/' | relative_url }}"><span class="i18n" lang="en">{{ site.author.name }}</span><span class="i18n" lang="ko">정승규</span></a>
     <nav aria-label="Sections">
-      <a href="{{ '/#about' | relative_url }}">About</a>
-      <a href="{{ '/#news' | relative_url }}">News</a>
-      <a href="{{ '/projects/' | relative_url }}" data-section="projects">Projects</a>
-      <a href="{{ '/#publications' | relative_url }}">Publications</a>
-      <a href="{{ '/#experience' | relative_url }}">Experience</a>
-      <a href="{{ '/#awards' | relative_url }}">Awards</a>
+      <a href="{{ '/#about' | relative_url }}">{% include ui.html k="about" %}</a>
+      <a href="{{ '/#news' | relative_url }}">{% include ui.html k="news" %}</a>
+      <a href="{{ '/#projects' | relative_url }}">{% include ui.html k="projects" %}</a>
+      <a href="{{ '/#startup' | relative_url }}">{% include ui.html k="startup" %}</a>
+      <a href="{{ '/#publications' | relative_url }}">{% include ui.html k="publications" %}</a>
+      <a href="{{ '/#experience' | relative_url }}">{% include ui.html k="experience" %}</a>
     </nav>
-    <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
-      <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-      <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-    </button>
+    <div class="nav-tools">
+      <button class="lang-toggle" type="button" aria-label="Language: English / 한국어">
+        <span data-l="en">EN</span><span data-l="ko">한</span>
+      </button>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
   </div>
 </header>

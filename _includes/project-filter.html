@@ -1,6 +1,6 @@
 <div class="filters" role="group" aria-label="Filter projects">
-  <button type="button" class="chip is-active" data-filter="all">All</button>
-  {% for t in site.data.topics %}
-    <button type="button" class="chip" data-filter="{{ t.key }}">{{ t.label }}</button>
+  <button type="button" class="chip is-active" data-filter="all">{% include ui.html k="filter_all" %}</button>
+  {% for t in site.data.types %}
+    <button type="button" class="chip" data-filter="{{ t.key }}">{% include ui.html k=t.ui %}</button>
   {% endfor %}
 </div>

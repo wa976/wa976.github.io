@@ -1,0 +1,1 @@
+{%- assign _l = site.data.link_labels[include.key] -%}{%- if _l -%}<span class="i18n" lang="en">{{ _l.en }}</span><span class="i18n" lang="ko">{{ _l.ko }}</span>{%- else -%}{{ include.key }}{%- endif -%}

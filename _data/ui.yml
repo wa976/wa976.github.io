@@ -1,0 +1,29 @@
+about: {en: "About", ko: "소개"}
+news: {en: "News", ko: "소식"}
+projects: {en: "Projects", ko: "프로젝트"}
+publications: {en: "Publications", ko: "논문"}
+startup: {en: "Startup", ko: "창업"}
+experience: {en: "Experience", ko: "경력"}
+education: {en: "Education", ko: "학력"}
+awards: {en: "Awards", ko: "수상"}
+awards_long: {en: "Awards & Honors", ko: "수상"}
+patent: {en: "Patent", ko: "특허"}
+service: {en: "Service", ko: "학술 활동"}
+skills: {en: "Skills", ko: "기술"}
+all_projects: {en: "All projects →", ko: "전체 프로젝트 →"}
+back_projects: {en: "← All projects", ko: "← 전체 프로젝트"}
+back_home: {en: "← Home", ko: "← 홈"}
+read_more: {en: "Read more", ko: "자세히 보기"}
+projects_intro: {en: "One page per paper, product or program: the problem, what I did, and the outcome.", ko: "논문·제품·프로그램마다 한 페이지씩, 문제와 한 일, 결과를 정리했습니다."}
+startup_intro: {en: "Turning research into a company and a product.", ko: "연구를 회사와 제품으로 옮겨 온 과정입니다."}
+problem: {en: "Problem", ko: "문제"}
+approach: {en: "Approach", ko: "방법"}
+results: {en: "Results", ko: "결과"}
+figures: {en: "Figures", ko: "그림"}
+previous: {en: "← Previous", ko: "← 이전"}
+next: {en: "Next →", ko: "다음 →"}
+filter_all: {en: "All", ko: "전체"}
+type_research: {en: "Research", ko: "연구"}
+type_startup: {en: "Startup & Product", ko: "창업·제품"}
+type_teaching: {en: "Teaching", ko: "강의"}
+last_updated: {en: "Last updated", ko: "최근 업데이트"}
