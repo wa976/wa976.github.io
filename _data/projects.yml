@@ -160,9 +160,9 @@
   award_short_ko: 대상
   role: Co-founder & CTO
   role_ko: 공동창업자·CTO
-  tagline: A parenting app that turns one spoken sentence into baby-care records. On the App Store since
-    August 2026.
-  tagline_ko: 말 한마디를 육아 기록으로 바꿔 주는 앱입니다. 2026년 8월부터 App Store에서 서비스하고 있습니다.
+  tagline: 'An AI parenting agent: log the day in one spoken sentence, ask about your baby''s records and
+    share them with family. On the App Store since August 2026; I lead its AI.'
+  tagline_ko: 말 한마디로 하루를 기록하고, 아이 기록을 물어보고, 가족과 함께 보는 육아 AI 에이전트입니다. 2026년 8월부터 App Store에서 서비스하고 있고, AI는 제가 총괄합니다.
   facts:
   - k: Platform
     k_ko: 플랫폼
@@ -178,8 +178,8 @@
     v_ko: 메디센싱
   - k: My role
     k_ko: 역할
-    v: 'Co-founder & CTO: product and AI direction'
-    v_ko: '공동창업자·CTO: 제품·AI 방향'
+    v: 'Co-founder & CTO: product direction, AI lead'
+    v_ko: '공동창업자·CTO: 제품 방향, AI 총괄'
   - k: Award
     k_ko: 수상
     v: Grand Prize, 2026 graduate startup club competition (Sep. 14, 2026)
@@ -188,12 +188,17 @@
   - label: Why
     label_ko: 왜 만들었나
     text: Parents log feeding, sleep and diapers with a baby in one arm, so "I'll write it down later"
-      often means it never gets written. Dadok takes most of the effort out of logging.
-    text_ko: 아이를 안은 채로는 수유·수면·기저귀를 바로 적기 어렵고, "이따 적어야지" 했던 기록은 자주 빠집니다. 다독은 이 기록하는 수고를 덜어 드리려고 만들었습니다.
-  - label: What it does
-    label_ko: 무엇을 하나
+      often means it never gets written. Dadok takes most of the effort out of logging, and turns the records
+      into answers a parent can ask for at any hour.
+    text_ko: 아이를 안은 채로는 수유·수면·기저귀를 바로 적기 어렵고, "이따 적어야지" 했던 기록은 자주 빠집니다. 다독은 기록하는 수고를 덜고, 쌓인 기록을
+      언제든 물어볼 수 있는 답으로 바꿔 줍니다.
+  - label: What it does today
+    label_ko: 지금 할 수 있는 것
     text: '- **Log by voice.** Say "시리야, 육아기록!" ("Hey Siri, baby log") and then what happened. One sentence
       with several events, such as "woke up, changed the diaper and fed formula", becomes separate records.
+
+      - **Ask about your records.** An AI chat answers questions such as "when did she last feed?" from
+      the baby''s own records.
 
       - **Log with one tap.** Buttons and lock-screen widgets, with preset amounts and buttons you can
       rearrange, resize and recolor.
@@ -203,8 +208,11 @@
 
       - **Share with family.** An invite code connects family members to the same child''s records.
 
-      - **Timers.** Feeding and sleep timers, with elapsed time on the lock screen.'
+      - **Timers and schedule.** Feeding and sleep timers on the lock screen; dates and times written in
+      a memo become calendar entries.'
     text_ko: '- **말로 기록.** "시리야, 육아기록!" 다음에 있었던 일을 말하면 됩니다. "깨서 기저귀 갈고 분유 먹였어"처럼 여러 일을 한 문장으로 말해도 각각 기록됩니다.
+
+      - **기록에 대해 묻기.** "마지막 수유가 언제였지?" 같은 질문에 AI 채팅이 우리 아이 기록을 바탕으로 답합니다.
 
       - **탭 한 번으로 기록.** 버튼과 잠금화면 위젯으로 남기고, 자주 쓰는 양을 미리 정하거나 버튼의 위치·크기·색을 바꿀 수 있습니다.
 
@@ -212,12 +220,58 @@
 
       - **가족과 함께.** 초대 코드로 가족을 연결하면 같은 아이의 기록을 함께 봅니다.
 
-      - **타이머.** 수유·수면 타이머를 쓰고, 잠금화면에서 경과 시간을 확인합니다.'
+      - **타이머와 일정.** 수유·수면 타이머를 잠금화면에서 보고, 메모에 쓴 날짜·시간은 일정으로 들어갑니다.'
+  - label: The AI I built
+    label_ko: 제가 만든 AI
+    text: 'I lead Dadok''s AI. Its core is a voice conversation pipeline that I designed and built most of
+      myself; it is in testing ahead of release.
+
+
+      **Speech → record gate → LLM that knows the baby''s records → safety filter → on-device voice**
+
+
+      - **Record gate.** Logging requests such as "she just had 120 ml" are saved as records and confirmed
+      with fixed phrases rather than generated text, so a log is never misreported. Everything else goes
+      to the LLM.
+
+      - **Answers grounded in the baby''s records.** The LLM sees the child''s recent records, so it can
+      answer "how long did she sleep today?" or "when was the last diaper?".
+
+      - **Fixing records by voice.** "No, it was 150" or "delete the last one" edits the same record instead
+      of adding a new one.
+
+      - **Safety by design.** Emergencies, diagnoses and medication questions are caught by rules before
+      the LLM and answered with fixed safety messages, and a code-level filter removes diagnostic wording
+      before anything is read aloud. Dadok stays a wellness product: no diagnosis and no breathing alerts.
+
+      - **On-device voice.** I put an open-source text-to-speech model into the iPhone app and optimized
+      it to run on the phone, so spoken replies need no speech server. Users can choose and preview voices.
+
+      - **Built for daily use.** Conversations open straight from Siri or a widget and keep going with
+      the screen locked. I measured latency at every stage against targets and handled network drops.
+      Raw audio is never stored; only text logs are kept.'
+    text_ko: '다독의 AI는 제가 총괄합니다. 중심은 음성 대화 파이프라인으로, 제가 설계하고 대부분을 직접 만들었으며 지금 출시 전 테스트 중입니다.
+
+
+      **말 → 기록 게이트 → 아이 기록을 아는 LLM → 안전 필터 → 기기 안 음성 합성**
+
+
+      - **기록 게이트.** "방금 분유 120 먹었어" 같은 기록 요청은 기록으로 저장하고, 생성한 문장이 아니라 정해진 문구로 확인합니다. 기록이 잘못 전달되지 않게 하려는 설계입니다. 그 밖의 말은 LLM으로 보냅니다.
+
+      - **아이 기록을 아는 답변.** LLM이 아이의 최근 기록을 함께 보므로 "오늘 몇 시간 잤어?", "마지막 기저귀 언제 갈았지?" 같은 질문에 답합니다.
+
+      - **말로 고치기.** "아니 150이야", "방금 거 지워줘"라고 하면 새 기록을 만들지 않고 그 기록을 고칩니다.
+
+      - **안전 장치.** 응급·진단·투약 질문은 LLM에 보내기 전에 규칙으로 걸러 정해진 안전 안내로 답하고, 소리 내어 읽기 전에 진단성 표현을 코드 단계에서 걸러냅니다. 다독은 진단이나 호흡 알림을 하지 않는 웰니스 제품으로 둡니다.
+
+      - **기기 안 음성 합성.** 오픈소스 음성 합성(TTS) 모델을 iPhone 앱에 넣고 폰에서 돌아가도록 최적화해, 답을 읽어 줄 때 음성 서버가 필요 없습니다. 목소리를 고르고 미리 들어볼 수 있습니다.
+
+      - **매일 쓰는 앱으로 마감.** Siri나 위젯에서 바로 대화를 열고, 화면을 잠가도 대화가 이어집니다. 단계마다 지연 시간을 재서 목표에 맞췄고, 네트워크가 끊겨도 복구합니다. 원음은 저장하지 않고 텍스트 기록만 남깁니다.'
   - label: My role
     label_ko: 내 역할
-    text: As co-founder and CTO of MediSensing, I set the product and AI direction for Dadok, which the
-      MediSensing team builds and runs.
-    text_ko: 메디센싱 공동창업자·CTO로서 다독의 제품·AI 방향을 정하고, 개발과 운영은 메디센싱 팀이 함께 합니다.
+    text: As co-founder and CTO of MediSensing, I set Dadok's product direction and lead its AI. The MediSensing
+      team builds and runs the app together.
+    text_ko: 메디센싱 공동창업자·CTO로서 다독의 제품 방향을 정하고 AI를 총괄합니다. 앱 개발과 운영은 메디센싱 팀이 함께 합니다.
   - label: Grand Prize
     label_ko: 대상 수상
     text: Dadok is also the item of SoundCare, the graduate startup club I lead in SEOULTECH's 2026 BIZ-Lab
@@ -875,8 +929,8 @@
     v_ko: 2026 공공기술기반 시장연계 창업탐색 지원사업 (실험실창업탐색교육 TeX-Corps)
   - k: Period
     k_ko: 기간
-    v: Apr.–Jul. 2026
-    v_ko: 2026년 4월~7월
+    v: Apr.–Dec. 2026
+    v_ko: 2026년 4월~12월
   - k: Overseas training
     k_ko: 해외 교육
     v: GW I-Corps, Washington, D.C., Jul. 2026
