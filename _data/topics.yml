@@ -1,0 +1,13 @@
+# Filter chips on the project grid. `key` must match the `topics` values in projects.yml.
+- key: lung-sound
+  label: Lung sounds
+- key: generalization
+  label: Device & patient shift
+- key: mobile-health
+  label: Mobile & wearable health
+- key: efficient-ml
+  label: Efficient audio
+- key: spatial-audio
+  label: Spatial audio
+- key: challenge
+  label: Challenges

@@ -1,0 +1,756 @@
+# Generated from the per-paper content files; one entry = one /projects/<slug>/ page.
+# Each entry needs a stub page at projects/<slug>.md (GitHub Pages runs no generator plugins).
+
+- slug: jbhi-2026-smartphone-lung-sound
+  title: Smartphone-Based Detection of Abnormal Lung Sounds Using Domain-Adaptive Deep Learning
+  short: Smartphone lung-sound screening
+  venue: IEEE JBHI 2026
+  year: 2026
+  authors: '**Seunggyu Jeong**, Sungwoo Nam, Seongkwan Jung, Seong-Eun Kim'
+  role: First author
+  topics:
+  - lung-sound
+  - generalization
+  - mobile-health
+  tagline: Detects abnormal pediatric lung sounds from smartphone recordings by adapting stethoscope data;
+    AUROC 0.911 internally and 0.862 on an external smartphone-only cohort.
+  problem: Electronic stethoscopes have made large labeled lung-sound datasets and deep learning possible,
+    but they are costly and impractical for everyday care at home. Smartphones are everywhere and have
+    sensitive microphones, so they could support home auscultation and remote patient monitoring, yet
+    labeled smartphone recordings are scarce and their acoustics differ from medical-grade stethoscopes.
+    Models trained on stethoscope data degrade on smartphone recordings, and naively pooling the two sources
+    is ineffective because of the acoustic mismatch.
+  approach: 'We recruited 611 children aged 0–6 years at Woori Children''s Hospital; 147 of them also
+    provided immediate-sequence paired recordings with an electronic stethoscope (3M Littmann CORE) and
+    a smartphone (iPhone 13) at the same four auscultation sites, and two board-certified pediatricians
+    labeled every clip (Cohen''s κ = 0.82). Analysis of the pairs suggested that the device gap lies mainly
+    along the frequency axis, so smartphone audio is first aligned to the stethoscope band with a zero-phase
+    eighth-order Butterworth low-pass filter at 1,000 Hz and downsampling from 48,000 Hz to 4,000 Hz.
+    An Audio Spectrogram Transformer (AST) is then trained on both sources with a directional MixStyle
+    module applied once before patch embedding: it blends per-frequency mean and standard-deviation statistics
+    from smartphone spectrograms into stethoscope spectrograms, so the abundant labeled stethoscope data
+    look "smartphone-like". The task is binary screening of normal versus abnormal (crackles and/or wheezes),
+    evaluated with patient-stratified 5-fold cross-validation and on an independent smartphone-only cohort
+    of 48 children from a different clinical site.'
+  result: On smartphone recordings in the primary cohort, the proposed method reached F1 0.802, AUROC
+    0.911 and AUPRC 0.890, versus 0.732 / 0.862 / 0.806 for a smartphone-only model and 0.708 / 0.834
+    / 0.796 for naive pooling. On the external smartphone-only cohort it reached F1 0.744, AUROC 0.862
+    and AUPRC 0.822, while a stethoscope-only model failed to generalize (F1 0.034). Ablation showed that
+    smartphone-specific preprocessing drove most of the gain (primary F1 0.708 → 0.783), with directional
+    MixStyle adding a smaller, not always significant refinement that was most visible in external AUPRC
+    (0.779 → 0.822). With added child-speech, whisper and clothing-rub noise at 20 dB SNR, external F1
+    stayed at 0.583 versus 0.236 for naive pooling, and the 5-fold ensemble was well calibrated (ECE ≈
+    0.06, Brier score 0.13).
+  venue_long: IEEE Journal of Biomedical and Health Informatics, 2026 (Early Access)
+  metrics:
+  - value: '0.911'
+    label: AUROC on smartphone recordings, primary cohort (patient-stratified 5-fold CV)
+  - value: '0.862'
+    label: AUROC on an independent smartphone-only external cohort (48 children)
+  - value: '147'
+    label: children with immediate-sequence paired stethoscope and smartphone recordings (of 611 enrolled)
+  - value: '0.583'
+    label: 'external F1 with added noise at 20 dB SNR (naive pooling: 0.236)'
+  tables:
+  - head:
+    - Training setup
+    - Primary F1
+    - Primary AUROC
+    - Primary AUPRC
+    - External F1
+    - External AUROC
+    - External AUPRC
+    rows:
+    - - 1. Stethoscope only †
+      - '0.850'
+      - '0.930'
+      - '0.927'
+      - '0.034'
+      - '0.388'
+      - '0.366'
+    - - 2. Smartphone only
+      - '0.732'
+      - '0.862'
+      - '0.806'
+      - '0.679'
+      - '0.767'
+      - '0.760'
+    - - 3. Naive combination
+      - '0.708'
+      - '0.834'
+      - '0.796'
+      - '0.630'
+      - '0.779'
+      - '0.735'
+    - - '**4. Proposed (preprocessing + directional MixStyle)**'
+      - '**0.802**'
+      - '**0.911**'
+      - '**0.890**'
+      - '**0.744**'
+      - '**0.862**'
+      - '**0.822**'
+    caption: Primary = patient-stratified 5-fold cross-validation on the primary cohort; External = independent
+      smartphone-only cohort (48 children, 434 clips). Values are means; 95% confidence intervals are
+      given in the paper. † For Setup 1 the primary columns are measured on stethoscope recordings (a
+      stethoscope-domain reference, not a smartphone result); all other primary columns are on smartphone
+      recordings.
+  links:
+    doi: https://doi.org/10.1109/JBHI.2026.3718492
+    code: https://github.com/wa976/smartphone-lung-sound-DA
+  figures:
+  - src: /assets/img/projects/jbhi-2026-smartphone-lung-sound/1-new_model.webp
+    caption: Training pipeline. Smartphone audio is low-pass filtered and resampled, both sources become
+      log-Mel spectrograms, and directional MixStyle injects smartphone style statistics into stethoscope
+      inputs before the AST encoder and a normal/abnormal classification head.
+  - src: /assets/img/projects/jbhi-2026-smartphone-lung-sound/2-feature_combine.webp
+    caption: 'Distributions of spectral centroid, bandwidth and roll-off for 110 paired normal recordings.
+      Left: original smartphone (blue) vs. stethoscope (orange). Right: after smartphone-specific preprocessing,
+      the smartphone distributions move much closer to the stethoscope.'
+  - src: /assets/img/projects/jbhi-2026-smartphone-lung-sound/3-tsne_combine.webp
+    caption: t-SNE of learned features colored by recording device. With naive pooling (Setup 3) smartphone
+      and stethoscope features form separate clusters; with the proposed method (Setup 4) they overlap
+      more.
+  thumb: /assets/img/projects/jbhi-2026-smartphone-lung-sound/1-new_model.webp
+- slug: imedic-chi2025
+  title: 'iMedic: Towards Smartphone-based Self-Auscultation Tool for AI-Powered Pediatric Respiratory
+    Assessment'
+  short: iMedic
+  venue: CHI 2025 EA
+  year: 2025
+  authors: '**Seunggyu Jeong**, Sungwoo Nam, Seongkwan Jung, Seong-Eun Kim'
+  role: First author
+  topics:
+  - lung-sound
+  - generalization
+  - mobile-health
+  tagline: 'Smartphone app that guides parents to record their child''s lung sounds and flags abnormal
+    sounds with AI: F1 0.82 on smartphone recordings, SUS 78.'
+  problem: Auscultation is central to catching pediatric pneumonia early, but it depends on the listening
+    expertise of medical professionals, which limits its use where physicians are hard to reach. Electronic
+    stethoscopes have enabled AI-based lung-sound classification, yet they are relatively expensive and
+    have low adoption in resource-limited settings. Earlier smartphone studies mainly showed that smartphone
+    recordings are feasible and good enough for clinicians to hear abnormal sounds, but most did not include
+    AI that classifies abnormal lung sounds automatically.
+  approach: 'iMedic is a mobile app that walks caregivers through three steps: entering the child''s symptoms,
+    recording lung sounds at four chest and back sites (10 seconds per site) with on-screen placement
+    guides, and receiving an AI assessment from a server that reports "normal" or recommends a medical
+    consultation. The classifier is an Audio Spectrogram Transformer (AST) trained on a large electronic-stethoscope
+    dataset (13,023 clips from 707 children, 3M Littmann CORE) together with a smaller smartphone dataset
+    (1,298 clips from 195 children, iPhone 13), recorded at a children''s hospital in Seoul. Smartphone
+    audio is resampled and low-pass filtered to match the stethoscope''s frequency range, and a modified
+    MixStyle block mixes frequency-axis feature statistics between devices only for samples that share
+    the same class label, inserted at two points in the AST encoder. Crackle, wheeze and both are merged
+    into a single "abnormal" class for binary screening.'
+  result: In five-fold stratified cross-validation tested on smartphone recordings, the combined model
+    with MixStyle reached specificity 90.30%, sensitivity 83.30%, Score (mean of sensitivity and specificity)
+    86.90% and F1 0.82, compared with Score 80.40% and F1 0.74 for smartphone-only training and Score
+    85.40% and F1 0.80 for combining the data without MixStyle. A model trained only on stethoscope data
+    scored 87.33% on stethoscope test data but dropped to 77.79% when tested on smartphone recordings.
+    In a usability study with 12 parents and their children aged 0–6, the app received an average System
+    Usability Scale (SUS) score of 78, above the commonly used benchmark of 68.
+  venue_long: CHI 2025 Extended Abstracts
+  metrics:
+  - value: '0.82'
+    label: F1 on smartphone recordings (stethoscope + smartphone data with MixStyle, 5-fold CV)
+  - value: 86.90%
+    label: 'Score (mean of sensitivity and specificity) on smartphone recordings; smartphone-only training:
+      80.40%'
+  - value: '78'
+    label: average System Usability Scale score from 12 parents
+  - value: 13,023 / 1,298
+    label: electronic-stethoscope / smartphone lung-sound clips (707 / 195 children)
+  tables:
+  - head:
+    - Setup
+    - SP (%)
+    - SE (%)
+    - Score (%)
+    - F1 Score
+    rows:
+    - - AST (Smartphone Only)
+      - 84.90 ± 13.74
+      - 75.90 ± 7.24
+      - 80.40 ± 4.25
+      - 0.74 ± 0.06
+    - - AST (Combined w/o MixStyle)
+      - 91.60 ± 2.70
+      - 79.20 ± 6.23
+      - 85.40 ± 3.62
+      - 0.80 ± 0.05
+    - - '**AST (Combined w MixStyle)**'
+      - '**90.30 ± 4.69**'
+      - '**83.30 ± 3.13**'
+      - '**86.90 ± 3.18**'
+      - '**0.82 ± 0.04**'
+    - - AST (Tested on Smartphone) †
+      - 69.29 ± 8.74
+      - 86.30 ± 10.06
+      - 77.79 ± 4.54
+      - 0.68 ± 0.05
+    caption: Lung-sound classification tested on smartphone recordings, five-fold stratified cross-validation
+      (mean ± SD). SP = specificity, SE = sensitivity, Score = average of SE and SP. † Trained on stethoscope
+      data only, tested on smartphone recordings. First three rows from Table 2, last row from Table 3.
+  links:
+    doi: https://doi.org/10.1145/3706599.3719915
+    arxiv: https://arxiv.org/abs/2504.15743
+  figures:
+  - src: /assets/img/projects/imedic-chi2025/1-teaser_final.webp
+    caption: System overview. A caregiver records the child's lung sounds with the iMedic app, a server-side
+      model classifies them as normal or abnormal, and the result comes back to the app with guidance
+      on whether to visit a hospital.
+  - src: /assets/img/projects/imedic-chi2025/2-model_v1.webp
+    caption: Model architecture. Stethoscope and preprocessed smartphone audio become augmented spectrogram
+      patches for an AST encoder with two MixStyle blocks, followed by a normal/abnormal classifier.
+  - src: /assets/img/projects/imedic-chi2025/3-apps.webp
+    caption: 'App screens: (a) symptom selection, (b) recording-site guidance, (c) real-time recording,
+      (d) results.'
+  thumb: /assets/img/projects/imedic-chi2025/1-teaser_final.webp
+- slug: pc-mcl-icassp2026
+  title: 'PC-MCL: Patient-Consistent Multi-Cycle Learning with Multi-Label Bias Correction for Respiratory
+    Sound Classification'
+  short: PC-MCL
+  venue: ICASSP 2026
+  year: 2026
+  authors: '**Seunggyu Jeong**, Seong-Eun Kim'
+  role: First author
+  topics:
+  - lung-sound
+  - generalization
+  tagline: Multi-cycle concatenation with a 3-label scheme and a patient-matching auxiliary task, reaching
+    an ICBHI Score of 65.37% on the 4-class benchmark.
+  problem: Many respiratory sound classifiers look at one breathing cycle at a time, which ignores the
+    temporal context across cycles even though abnormal sounds are often transient and intermittent, and
+    they tend to overfit to patient-specific acoustics. Concatenating normal and abnormal cycles is a
+    natural fix, but under the conventional 2-label [crackle, wheeze] scheme a normal cycle is [0, 0],
+    so a normal+crackle mix is labeled exactly like pure crackle. This "multi-label distributional bias"
+    systematically erases the normal information in mixed samples.
+  approach: PC-MCL builds each training input by concatenating two respiratory cycles (each padded or
+    cropped to half of a 10-second input), using same-class and cross-class pairs from the same and different
+    patients. Labels use a 3-label [normal, crackle, wheeze] vector combined by an element-wise OR, so
+    a normal+crackle mix becomes [1, 1, 0], trained with multi-label binary cross-entropy. A second head
+    on the shared backbone predicts whether the two cycles come from the same patient, with hard negatives
+    drawn from different patients with the same pathology; this auxiliary loss is added with weight 0.1.
+    At test time, single cycles are padded to the input length, outputs are thresholded at 0.5 and mapped
+    to the four ICBHI classes by a fixed priority rule.
+  result: On the ICBHI 2017 benchmark (official 60:40 split, 4-class, mean of five seeds), BEATs + PC-MCL
+    reaches an ICBHI Score of 65.37% (Sp 79.04%, Se 51.71%), the highest among the methods compared in
+    the paper's Table 1. Against cross-entropy baselines it raises the Score from 62.82% to 65.37% (BEATs)
+    and from 59.55% to 62.30% (AST), with Sensitivity gains of 2.92 and 4.08 points. Replacing the 2-label
+    with the 3-label formulation lifts the Score from 60.42% to 65.37%, and average precision for crackle
+    and wheeze rises from 0.209 and 0.116 (CE baseline) to 0.642 and 0.663.
+  venue_long: IEEE ICASSP 2026
+  metrics:
+  - value: 65.37%
+    label: ICBHI Score, 4-class (BEATs + PC-MCL)
+  - value: '+2.92'
+    label: Sensitivity points over the BEATs CE baseline (48.79% to 51.71%)
+  - value: 60.42% → 65.37%
+    label: Score with the 2-label vs. the proposed 3-label formulation
+  - value: 0.116 → 0.663
+    label: Wheeze average precision, CE baseline vs. PC-MCL
+  tables:
+  - head:
+    - Method
+    - Backbone
+    - Pretraining
+    - Augmentation
+    - Sp (%)
+    - Se (%)
+    - Score (%)
+    rows:
+    - - Bae et al. (Patch-Mix CL)
+      - AST
+      - IN + AS
+      - Patch-Mix
+      - '81.66'
+      - '43.07'
+      - '62.37'
+    - - Kim et al. (RepAugment)
+      - AST
+      - IN + AS
+      - RepAugment
+      - '82.47'
+      - '40.55'
+      - '61.51'
+    - - Jeong et al. (PAFA)
+      - BEATs
+      - AS
+      - '-'
+      - '82.05'
+      - '47.63'
+      - '64.84'
+    - - '**AST + PC-MCL**'
+      - '**AST**'
+      - '**IN + AS**'
+      - '**Concat (same/cross-class)**'
+      - '**78.54±1.87**'
+      - '**46.05±1.62**'
+      - '**62.30±0.50**'
+    - - '**BEATs + PC-MCL**'
+      - '**BEATs**'
+      - '**AS**'
+      - '**Concat (same/cross-class)**'
+      - '**79.04±1.90**'
+      - '**51.71±2.98**'
+      - '**65.37±0.73**'
+    caption: 4-class results on the ICBHI 2017 dataset with the official 60-40% split. IN = ImageNet,
+      AS = AudioSet. PC-MCL rows are mean ± std over five random seeds. Subset of the paper's Table 1.
+  links:
+    doi: https://doi.org/10.1109/ICASSP55912.2026.11461974
+    arxiv: https://arxiv.org/abs/2601.17080
+  figures:
+  - src: /assets/img/projects/pc-mcl-icassp2026/1-model2.webp
+    caption: PC-MCL overview. Two respiratory cycles are concatenated, converted to a spectrogram and
+      encoded by a shared backbone; one head predicts the 3-label pathology vector and the other predicts
+      whether the two cycles come from the same patient. At inference, thresholded outputs are mapped
+      to Normal, Crackle, Wheeze or Both.
+  - src: /assets/img/projects/pc-mcl-icassp2026/2-combine_tsne.webp
+    caption: t-SNE of features for pure normal (green), pure abnormal (red) and mixed normal+abnormal
+      (blue) samples. With the 2-label scheme, mixed and pure abnormal samples overlap heavily; with the
+      3-label scheme they form separate clusters.
+  - src: /assets/img/projects/pc-mcl-icassp2026/3-prc.webp
+    caption: Per-class precision-recall curves on the ICBHI test set for the CE baseline, an intermediate
+      multi-label variant and the full PC-MCL model; the full model gives the highest average precision
+      for crackle and wheeze.
+  thumb: /assets/img/projects/pc-mcl-icassp2026/1-model2.webp
+- slug: pafa-interspeech2025
+  title: 'Patient-Aware Feature Alignment for Robust Lung Sound Classification: Cohesion-Separation and
+    Global Alignment Losses'
+  short: PAFA
+  venue: INTERSPEECH 2025
+  year: 2025
+  authors: '**Seunggyu Jeong**, Seong-Eun Kim'
+  role: First author
+  topics:
+  - lung-sound
+  - generalization
+  tagline: Two patient-aware training losses that keep each patient's lung-sound features distinct yet
+    globally aligned, reaching an ICBHI Score of 64.84% (4-class).
+  problem: Patients with the same diagnosis can produce very different lung sounds because of anatomy,
+    disease severity and recording environment. When a global objective such as cross-entropy dominates
+    training, embeddings of distinctive patients tend to collapse into a few large class clusters ("feature
+    collapse"), so models work on well-represented profiles but neglect outlier patients. Adding demographic
+    metadata such as age or gender cannot fully account for these acoustic differences.
+  approach: PAFA adds a projection head next to the classification head of an AudioSet-pretrained BEATs
+    backbone and trains it with two patient-aware losses on top of cross-entropy. The Patient Cohesion-Separation
+    Loss (PCSL), inspired by Fisher's linear discriminant analysis, minimizes the ratio of intra-patient
+    scatter to inter-patient centroid dispersion, pulling a patient's embeddings together while pushing
+    different patients apart. The Global Patient Alignment Loss (GPAL) draws every patient centroid toward
+    the batch's global centroid so the feature space does not fragment. Patient identifiers are used only
+    to compute these losses; the projection head is removed after training and only the classifier is
+    used at inference.
+  result: On the ICBHI 2017 dataset (official 60/40 split, mean of five seeds), BEATs + PAFA reaches an
+    ICBHI Score of 64.84% for 4-class and 72.08% for 2-class classification, 1.35 and 1.32 points above
+    the BEATs cross-entropy baseline; the paper reports these as state-of-the-art Scores on both tasks
+    among the compared methods. PAFA also improves the Score with CNN6 (57.46% to 57.87%) and AST (60.93%
+    to 62.19%) backbones, and removing either loss lowers the 4-class Score to 63.92% (without PCSL) or
+    63.88% (without GPAL).
+  metrics:
+  - value: 64.84%
+    label: ICBHI Score, 4-class (BEATs + PAFA)
+  - value: 72.08%
+    label: ICBHI Score, 2-class (BEATs + PAFA)
+  - value: '+1.35'
+    label: Score points over the BEATs + CE baseline, 4-class
+  - value: '+1.32'
+    label: Score points over the BEATs + CE baseline, 2-class
+  tables:
+  - head:
+    - Method
+    - Backbone
+    - Pretraining
+    - Metadata
+    - Sp (%)
+    - Se (%)
+    - Score (%)
+    rows:
+    - - Bae et al. (Patch-Mix CL)
+      - AST
+      - IN + AS
+      - X
+      - '81.66'
+      - '43.07'
+      - '62.37'
+    - - Kim et al. (SG-SCL)
+      - AST
+      - IN + AS
+      - O
+      - '79.87'
+      - '43.55'
+      - '61.71'
+    - - Kim et al. (BTS)
+      - CLAP
+      - LA
+      - O
+      - '81.40'
+      - '45.67'
+      - '63.54'
+    - - BEATs + CE [ours]
+      - BEATs
+      - AS
+      - X
+      - 78.77±3.07
+      - 48.21±2.32
+      - 63.49±1.08
+    - - '**BEATs + PAFA [ours]**'
+      - '**BEATs**'
+      - '**AS**'
+      - '**X**'
+      - '**82.05±1.95**'
+      - '**47.63±2.23**'
+      - '**64.84±0.60**'
+    caption: 4-class results on the ICBHI 2017 dataset (official 60/40 split). IN = ImageNet, AS = AudioSet,
+      LA = LAION-Audio-630K; Metadata O/X = uses/does not use metadata. Our rows are averaged over five
+      random seeds. Subset of the paper's Table 1.
+  links:
+    doi: https://doi.org/10.21437/Interspeech.2025-1477
+    arxiv: https://arxiv.org/abs/2505.23834
+    code: https://github.com/wa976/PAFA
+  figures:
+  - src: /assets/img/projects/pafa-interspeech2025/1-model.webp
+    caption: PAFA overview. A BEATs encoder feeds a classifier (cross-entropy) and a projector trained
+      with PCSL, which pulls each patient's embeddings together and pushes patients apart, and GPAL, which
+      aligns patient centroids to a global centroid.
+  - src: /assets/img/projects/pafa-interspeech2025/2-tsne_class_true_ce_train.webp
+    caption: 't-SNE of training embeddings with cross-entropy only: samples mostly form four large clusters
+      aligned with the sound classes.'
+  - src: /assets/img/projects/pafa-interspeech2025/3-tsne_class_true_pafa_train.webp
+    caption: 't-SNE of training embeddings with PAFA: additional sub-clusters appear, so some patient
+      groups are no longer absorbed into a single class cluster.'
+  thumb: /assets/img/projects/pafa-interspeech2025/1-model.webp
+- slug: neckvibe-interspeech2026
+  title: Attention-Based Multiple Instance Learning with Tabular Stacking for Ambulatory Detection of
+    PVH and NPVH
+  short: NeckVibe Challenge
+  venue: INTERSPEECH 2026
+  year: 2026
+  authors: Kiran Yerpude, **Seunggyu Jeong**, Seong-Eun Kim
+  role: Co-author (supervising role)
+  award: 1st place (tied) NPVH · 3rd place PVH
+  topics:
+  - mobile-health
+  - challenge
+  tagline: Subject-level detection of two voice disorders from week-long neck-accelerometer recordings
+    by stacking a CatBoost tabular model with attention-based MIL.
+  problem: Phonotraumatic (PVH) and non-phonotraumatic (NPVH) vocal hyperfunction are voice disorders
+    caused by excessive laryngeal muscle activity; PVH comes with vocal-fold lesions, NPVH does not. The
+    NeckVibe Challenge provides multi-day neck-surface accelerometer recordings of daily voice use from
+    582 individuals, with labels only at the subject level, so the informative short segments inside long,
+    noisy recordings are not marked.
+  approach: Frame-level features at 50 ms are filtered to voiced, non-singing, device-on frames, amplitude
+    outliers are removed, and missing values are encoded with explicit indicators. A tabular branch trains
+    CatBoost on day-level robust statistics aggregated per subject, with extra interaction features for
+    NPVH. A multiple-instance learning branch treats each subject as a bag of up to 24 windows of 12 s,
+    encodes each window with a 1D residual network with squeeze-and-excitation into a 256-dimensional
+    embedding, and pools the windows with gated attention. Out-of-fold probabilities from both branches
+    (quantile-normalized for NPVH), their absolute difference and their product feed a logistic-regression
+    stacking classifier, using 5-fold stratified GroupKFold by subject throughout.
+  result: On the challenge's held-out test set, the system reached AUC 0.891 for PVH (Task 1, rank 3)
+    and AUC 0.861 for NPVH (Task 2, rank 1, tied with another team on the official leaderboard). In out-of-fold
+    cross-validation on the official training split, the stacked model reached AUC 0.885 (95% CI 0.850-0.917)
+    for PVH and 0.757 (95% CI 0.697-0.810) for NPVH, above either branch alone. The authors note that
+    the gain over CatBoost alone is small and describe the deep branch's value as complementary.
+  venue_long: INTERSPEECH 2026 · NeckVibe Challenge
+  award_short: 1st (tied) · 3rd
+  note: 'Team SEOULTECH × MediSensing. Kiran Yerpude led the system and the paper; Seunggyu Jeong had
+    a supervising role. Data: NeckVibe Challenge dataset.'
+  metrics:
+  - value: '0.861'
+    label: Official test AUC, NPVH detection (Task 2), rank 1 (tied)
+  - value: '0.891'
+    label: Official test AUC, PVH detection (Task 1), rank 3
+  - value: '0.885'
+    label: Out-of-fold AUC, PVH, stacked model (95% CI 0.850-0.917)
+  - value: '0.757'
+    label: Out-of-fold AUC, NPVH, stacked model (95% CI 0.697-0.810)
+  tables:
+  - head:
+    - Task
+    - Model
+    - Mean AUC
+    - 95% CI
+    rows:
+    - - PVH
+      - CatBoost
+      - '0.875'
+      - '[0.840,0.908]'
+    - - PVH
+      - MIL
+      - '0.835'
+      - '[0.797,0.872]'
+    - - PVH
+      - '**Stacked**'
+      - '**0.885**'
+      - '**[0.850,0.917]**'
+    - - NPVH
+      - CatBoost
+      - '0.751'
+      - '[0.696,0.805]'
+    - - NPVH
+      - MIL
+      - '0.717'
+      - '[0.659,0.771]'
+    - - NPVH
+      - '**Stacked**'
+      - '**0.757**'
+      - '**[0.697,0.810]**'
+    caption: Out-of-fold AUC on the training split with 95% bootstrap confidence intervals (2000 stratified
+      resamples) for each branch and the stacked ensemble.
+  links:
+    paper: https://www.isca-archive.org/interspeech_2026/yerpude26_interspeech.html
+    pdf: https://www.isca-archive.org/interspeech_2026/yerpude26_interspeech.pdf
+    results: https://sites.google.com/view/neckvibe-challenge/home
+  figures:
+  - src: /assets/img/projects/neckvibe-interspeech2026/1-neckvibe-fig2.webp
+    caption: 'Two-branch pipeline: filtered 50 ms frames feed a CatBoost model on subject-level day statistics
+      and an attention-based MIL model on 12 s windows; a logistic-regression stacker combines both into
+      PVH and NPVH probabilities.'
+  thumb: /assets/img/projects/neckvibe-interspeech2026/1-neckvibe-fig2.webp
+- slug: dcase2026-task3-semantic-acoustic-imaging
+  title: An Equirectangular Energy Field with Per-Location Class Coverage for Semantic Acoustic Imaging
+  short: Semantic acoustic imaging
+  venue: DCASE 2026 · Task 3
+  year: 2026
+  authors: '**Seunggyu Jeong**, Seong-Eun Kim'
+  role: First author, team lead
+  award: 2nd place, Track A (team ranking)
+  topics:
+  - spatial-audio
+  - challenge
+  tagline: Audio-only semantic acoustic imaging with a PanoFormer energy field on the sphere and direction-of-arrival
+    class coverage; 2nd of 5 teams in Track A.
+  problem: 'DCASE 2026 Task 3 asks systems to turn four-channel first-order spatial audio into semantic
+    acoustic images: for every 0.1 s frame, a set of instances, each a soft energy footprint on the 360°
+    × 180° equirectangular sphere with one of thirteen sound classes. Systems are scored by mask mean
+    average precision (mask mAP) with a MACRO average over classes, so every spurious connected component
+    is a false positive and a class with no predictions counts as zero rather than being skipped.'
+  approach: The problem is split into localization and classification. A fixed, distilled acoustic-imaging
+    front-end (UpLAM, built on latent acoustic mapping) maps the recording to a nine-band 9 × 180 × 360
+    energy image, and PanoFormer, an equirectangular transformer with azimuth-circular padding, replaces
+    the baseline's ResNet/FPN decoder to regress a dense energy field without seam artefacts at the azimuth
+    wrap. Instances are connected components of the field thresholded at 0.5, initially scored by peak
+    energy. Each instance takes the class of the nearest per-class direction of arrival predicted by PSELDNets
+    (fine-tuned with a thirteen-class ACCDOA head) within a per-class assignment radius, so all thirteen
+    classes can be labelled, and a temporal-persistence re-ranking sets the detection confidences. The
+    four submitted systems differ only in this class branch.
+  result: On the development set, the primary system (PSELDNets coverage, 80-pixel radius) reaches a MACRO
+    mask mAP of 0.0515, against 0.0003 for the official baseline; replacing the planar decoder with the
+    equirectangular field alone raises mask mAP from about 0.017 to 0.0394 at a fixed operating point.
+    On the official evaluation set the team ranked 2nd of 5 teams in Track A (audio-only); its best-ranked
+    system (the same coverage system at a 40-pixel radius) scored Macro mAP 0.0662 and Macro Pearson r
+    0.2765. The official ranking combines the ranks of mask mAP and Pearson r.
+  venue_long: DCASE 2026 Challenge, Task 3 Track A (audio-only), technical report
+  award_short: 2nd place
+  thumb_text: Spherical sound maps from 4-channel audio
+  note: Evaluation numbers and ranking as posted on the official DCASE 2026 results page (checked Nov.
+    2026).
+  metrics:
+  - value: 2nd
+    label: Official team rank, Task 3 Track A (audio-only), 5 teams
+  - value: '0.0662'
+    label: Evaluation-set Macro mAP, best-ranked system (Jeong_Medisensing_task3a_4)
+  - value: '0.2765'
+    label: Evaluation-set Macro Pearson r, same system
+  - value: '0.0515'
+    label: 'Development MACRO mask mAP, primary system (official baseline: 0.0003)'
+  tables:
+  - head:
+    - System
+    - Class branch
+    - lenient
+    - strict
+    rows:
+    - - '1'
+      - frozen SSAST probe
+      - '0.0710'
+      - '0.0156'
+    - - '**2**'
+      - '**PSELDNets coverage, 80px radius**'
+      - '**0.0515**'
+      - '**0.0515**'
+    - - '3'
+      - CLAP present set + PSELDNets
+      - '0.0415'
+      - '0.0415'
+    - - '4'
+      - PSELDNets coverage, 40px radius
+      - '0.0501'
+      - '0.0501'
+    caption: Development MACRO mask mAP of the four submitted systems, which share the PanoFormer field
+      and temporal-persistence confidence. "Strict" counts a class with no predictions as zero (the official
+      average); "lenient" averages only over predicted classes. System 2 is the primary system.
+  links:
+    paper: https://dcase.community/documents/challenge2026/technical_reports/DCASE2026_Jeong_144_t3.pdf
+    results: https://dcase.community/challenge2026/task-semantic-acoustic-imaging-for-sound-event-localization-and-detection-from-spatial-audio-and-audiovisual-scenes-results
+  figures: []
+- slug: dcase2025-task1-device-aware-kd
+  title: Adaptive Knowledge Distillation using a Device-Aware Teacher for Low-Complexity Acoustic Scene
+    Classification
+  short: Device-aware distillation
+  venue: DCASE 2025 · Task 1
+  year: 2025
+  authors: '**Seunggyu Jeong**, Seong-Eun Kim'
+  role: First author
+  topics:
+  - challenge
+  - efficient-ml
+  - generalization
+  tagline: Knowledge distillation from a device-aware PaSST teacher ensemble into a low-complexity CP-MobileNet,
+    followed by device-specific fine-tuning.
+  problem: DCASE 2025 Task 1 asks for acoustic scene classification of 1-second clips from 10 scene classes
+    (TAU Urban Acoustic Scenes 2025 Mobile) under strict complexity limits of at most 128 kB of parameters
+    and 30 million multiply-accumulate operations, while staying robust across recording devices, including
+    devices never seen in training. A new rule in the 2025 edition allows the device label to be used
+    at test time.
+  approach: A CP-MobileNet student (32 base channels, expansion rate 3, channel multiplier 2.3) is trained
+    by knowledge distillation from two PaSST teachers whose soft predictions are averaged. One teacher
+    is trained with cross-entropy only; the other, a "generalization expert", adds a Device-Aware Feature
+    Alignment (DAFA) loss adapted from the authors' earlier patient-aware feature alignment work on lung
+    sound classification. DAFA combines a Device Cohesion-Separation Loss (intra-device scatter divided
+    by inter-device scatter) with a Global Device Alignment Loss that pulls each device centroid toward
+    the global centroid. Freq-MixStyle and Mixup are used during training; after 500 epochs of distillation,
+    the student is fine-tuned for 100 more epochs on each of the six known devices, so a device-specific
+    model is selected at inference.
+  result: On the official development split, the final system reaches 57.93% accuracy, up from 54.61%
+    after distillation alone (+3.32 points overall); device-specific fine-tuning improves every known
+    device (A, B, C, S1, S2, S3) by +2.16 to +8.24 points. In the teacher-configuration ablation, the
+    cross-entropy + DAFA teacher pair ties the cross-entropy-only pair at 60.73% overall but is higher
+    on seen (57.73%) and unseen (58.35%) devices. On the official evaluation set, the best system (Jeong_SEOULTECH_task1_2)
+    reached 57.9% accuracy (53.0% on unknown devices).
+  venue_long: DCASE 2025 Challenge, Task 1, technical report
+  thumb_text: Scene classification under 128 kB
+  metrics:
+  - value: 57.93%
+    label: Development-set accuracy of the final system (after device-specific fine-tuning)
+  - value: +3.32 pts
+    label: Overall development accuracy gain from device-specific fine-tuning (54.61% to 57.93%)
+  - value: 58.35%
+    label: 'Unseen-device accuracy with the CE + DAFA teacher pair (CE + CE pair: 58.31%)'
+  - value: 57.9%
+    label: Official evaluation-set accuracy, best system Jeong_SEOULTECH_task1_2 (95% CI 57.6-58.1)
+  tables:
+  - head:
+    - Stage
+    - A
+    - B
+    - C
+    - S1
+    - S2
+    - S3
+    - S4
+    - S5
+    - S6
+    - Overall
+    rows:
+    - - After Distillation
+      - '64.33'
+      - '52.43'
+      - '57.33'
+      - '51.39'
+      - '51.70'
+      - '54.58'
+      - '54.67'
+      - '55.12'
+      - '50.00'
+      - '54.61'
+    - - '**After DSFT (Final)**'
+      - '**69.82**'
+      - '**60.67**'
+      - '**64.80**'
+      - '**53.55**'
+      - '**54.94**'
+      - '**57.82**'
+      - '**54.67**'
+      - '**55.12**'
+      - '**50.00**'
+      - '**57.93**'
+    - - Improvement (∆)
+      - '+5.49'
+      - '+8.24'
+      - '+7.47'
+      - '+2.16'
+      - '+3.24'
+      - '+3.24'
+      - '-'
+      - '-'
+      - '-'
+      - '+3.32'
+    caption: Development-set accuracy (%) per recording device before and after device-specific fine-tuning
+      (DSFT). Fine-tuning is applied only to the six known devices, so S4-S6 are unchanged.
+  links:
+    arxiv: https://arxiv.org/abs/2509.09262
+    inference_code: https://github.com/wa976/dcase2025_task1_inference
+    results: https://dcase.community/challenge2025/task-low-complexity-acoustic-scene-classification-with-device-information-results
+  figures: []
+- slug: pdscl-itccscc2024
+  title: Patient Domain Supervised Contrastive Learning for Lung Sound Classification Using Mobile Phone
+  short: PD-SCL
+  venue: ITC-CSCC 2024
+  year: 2024
+  authors: '**Seunggyu Jeong**, Seong-Eun Kim'
+  role: First author
+  topics:
+  - lung-sound
+  - mobile-health
+  - generalization
+  tagline: Contrastive learning across patients and recording devices lets stethoscope data help classify
+    smartphone lung recordings, reaching an 86.3% normal/abnormal score.
+  problem: Smartphone microphones could make lung sound assessment possible outside in-person visits,
+    but phone recordings differ in audio style from electronic stethoscope recordings, and recordings
+    also vary from patient to patient. Phone data are scarce, so a model should learn from the much larger
+    stethoscope data without being hurt by this device gap.
+  approach: PD-SCL adds a supervised contrastive loss to a fine-tuned Audio Spectrogram Transformer (AST).
+    Features are L2-normalized and compared by temperature-scaled dot products; positive pairs share the
+    same label but come from different patients or different recording devices, and pairs with different
+    labels are negatives. The total loss is cross-entropy plus 0.5 times the PD-SCL loss (temperature
+    0.5). It is compared with AST fine-tuned on phone data only, AST fine-tuned on the combined data,
+    and domain adversarial training (DAT). Data are pediatric lung sounds recorded by medical professionals
+    at a children's hospital in Seoul with a 3M Littmann digital stethoscope (8,724 recordings, 342 patients)
+    and an iPhone (2,701 recordings, 63 patients), classified as normal vs. abnormal (crackle, wheeze
+    or both).
+  result: Under 5-fold cross-validation that trains on stethoscope and phone recordings and validates
+    on phone recordings only, PD-SCL reaches Sp 89.9%, Se 82.7% and a score (mean of Sp and Se) of 86.3%,
+    compared with 84.1% for AST on phone data only, 83.9% for AST on the combined data and 83.7% for DAT.
+    The abstract summarizes this as a 2.4% improvement over the original AST model. Its ROC AUC is 0.90,
+    versus 0.86 to 0.89 for the baselines.
+  metrics:
+  - value: 86.3%
+    label: Score (mean of Sp and Se) on smartphone recordings, 5-fold CV
+  - value: +2.4%
+    label: Score gain over AST fine-tuned on the combined data (83.9%)
+  - value: '0.90'
+    label: ROC AUC (baselines 0.86-0.89)
+  - value: 2,701
+    label: iPhone recordings from 63 pediatric patients, alongside 8,724 stethoscope recordings
+  tables:
+  - head:
+    - Method
+    - Sp (%)
+    - Se (%)
+    - Sc (%)
+    rows:
+    - - AST - Finetuning (Mobile data only)
+      - '85.7'
+      - '82.5'
+      - '84.1'
+    - - AST - Finetuning (Combined Data)
+      - '86.3'
+      - '81.5'
+      - '83.9'
+    - - DAT
+      - '92.5'
+      - '74.8'
+      - '83.7'
+    - - '**Our (PD-SCL)**'
+      - '**89.9**'
+      - '**82.7**'
+      - '**86.3**'
+    caption: Normal vs. abnormal classification on smartphone recordings, 5-fold cross-validation. Sc
+      = (Sp + Se) / 2. DAT = domain adversarial training.
+  links:
+    arxiv: https://arxiv.org/abs/2505.23132
+  figures:
+  - src: /assets/img/projects/pdscl-itccscc2024/1-average_roc_curve_comparison2.webp
+    caption: ROC curves on smartphone recordings. PD-SCL has the largest area under the curve (0.90),
+      ahead of AST on phone data only (0.89), AST on combined data (0.88) and DAT (0.86).
+  thumb: /assets/img/projects/pdscl-itccscc2024/1-average_roc_curve_comparison2.webp

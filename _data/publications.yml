@@ -1,0 +1,94 @@
+# Home-page publication list. `page` = slug of a /projects/<slug>/ page (optional).
+# `links` keys are labelled through _data/link_labels.yml.
+
+- group: Journal
+  items:
+    - venue: IEEE JBHI 2026
+      title: Smartphone-Based Detection of Abnormal Lung Sounds Using Domain-Adaptive Deep Learning
+      authors: "**Seunggyu Jeong**, Sungwoo Nam, Seongkwan Jung, Seong-Eun Kim"
+      note: IEEE Journal of Biomedical and Health Informatics (Early Access)
+      page: jbhi-2026-smartphone-lung-sound
+      links:
+        doi: https://doi.org/10.1109/JBHI.2026.3718492
+        code: https://github.com/wa976/smartphone-lung-sound-DA
+
+- group: International Conferences
+  items:
+    - venue: INTERSPEECH 2026
+      title: Attention-Based Multiple Instance Learning with Tabular Stacking for Ambulatory Detection of PVH and NPVH
+      authors: "Kiran Yerpude, **Seunggyu Jeong**, Seong-Eun Kim"
+      note: NeckVibe Challenge — 1st place (tied) NPVH, 3rd place PVH
+      page: neckvibe-interspeech2026
+      links:
+        paper: https://www.isca-archive.org/interspeech_2026/yerpude26_interspeech.html
+    - venue: ICML 2026
+      title: "Rethinking Attention in Spiking Transformers: Overcoming Density Bias with Set Similarity"
+      authors: "JinGyo Lim, **Seunggyu Jeong**, Seong-Eun Kim"
+      links:
+        paper: https://openreview.net/forum?id=8clCPAImE3
+    - venue: ICASSP 2026
+      title: "PC-MCL: Patient-Consistent Multi-Cycle Learning with Multi-Label Bias Correction for Respiratory Sound Classification"
+      authors: "**Seunggyu Jeong**, Seong-Eun Kim"
+      page: pc-mcl-icassp2026
+      links:
+        doi: https://doi.org/10.1109/ICASSP55912.2026.11461974
+        arxiv: https://arxiv.org/abs/2601.17080
+    - venue: CHI 2026 EA
+      title: "Reading the Mood Behind Words: Integrating Prosody-Derived Emotional Context into Socially Responsive VR Agents"
+      authors: "SangYeop Jeong, Yeongseo Na, **Seunggyu Jeong**, Jin-Woo Jeong, Seong-Eun Kim"
+      links:
+        doi: https://doi.org/10.1145/3772363.3798643
+    - venue: INTERSPEECH 2025
+      title: "Patient-Aware Feature Alignment for Robust Lung Sound Classification: Cohesion-Separation and Global Alignment Losses"
+      authors: "**Seunggyu Jeong**, Seong-Eun Kim"
+      page: pafa-interspeech2025
+      links:
+        doi: https://doi.org/10.21437/Interspeech.2025-1477
+        arxiv: https://arxiv.org/abs/2505.23834
+        code: https://github.com/wa976/PAFA
+    - venue: CHI 2025 EA
+      title: "iMedic: Towards Smartphone-based Self-Auscultation Tool for AI-Powered Pediatric Respiratory Assessment"
+      authors: "**Seunggyu Jeong**, Sungwoo Nam, Seongkwan Jung, Seong-Eun Kim"
+      page: imedic-chi2025
+      links:
+        doi: https://doi.org/10.1145/3706599.3719915
+        arxiv: https://arxiv.org/abs/2504.15743
+    - venue: ITC-CSCC 2024
+      title: Patient Domain Supervised Contrastive Learning for Lung Sound Classification Using Mobile Phone
+      authors: "**Seunggyu Jeong**, Seong-Eun Kim"
+      page: pdscl-itccscc2024
+      links:
+        arxiv: https://arxiv.org/abs/2505.23132
+
+- group: Challenge Technical Reports
+  items:
+    - venue: DCASE 2026
+      title: An Equirectangular Energy Field with Per-Location Class Coverage for Semantic Acoustic Imaging
+      authors: "**Seunggyu Jeong**, Seong-Eun Kim"
+      note: Task 3 — 2nd place (team ranking, Track A)
+      page: dcase2026-task3-semantic-acoustic-imaging
+      links:
+        paper: https://dcase.community/documents/challenge2026/technical_reports/DCASE2026_Jeong_144_t3.pdf
+    - venue: DCASE 2025
+      title: Adaptive Knowledge Distillation using a Device-Aware Teacher for Low-Complexity Acoustic Scene Classification
+      authors: "**Seunggyu Jeong**, Seong-Eun Kim"
+      page: dcase2025-task1-device-aware-kd
+      links:
+        arxiv: https://arxiv.org/abs/2509.09262
+
+- group: Domestic (Korean)
+  items:
+    - venue: KIEEE 2025
+      title: 오디오 분리 기법을 이용한 스마트폰 기반 폐음 분류의 소음강건성 향상 연구
+      authors: "**정승규**, 김성은"
+      note: Best Paper Award (우수논문상)
+    - venue: KICS 2025
+      title: CRNN 기반 사운드 이벤트 검출을 통한 스마트 양봉 위험 관리 시스템
+      authors: "**정승규**, 김성은"
+    - venue: J. IEIE 2025
+      title: "차세대 뉴로모픽 컴퓨팅의 핵심, 스파이킹 뉴럴 네트워크: 최신 모델 연구 동향"
+      authors: "임진교, **정승규**, 김성은"
+      note: 전자공학회지, pp. 53–62
+    - venue: KICS 2023
+      title: Audio Spectrogram Transformer를 이용한 폐음 기반 호흡기 질환 분류에 관한 연구
+      authors: "**정승규**, 김성은"

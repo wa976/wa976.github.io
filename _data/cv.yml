@@ -1,156 +1,102 @@
-- title: General Information
-  type: map
-  contents:
-    - name: Full Name
-      value: Seunggyu Jeong (정승규)
-    - name: Position
-      value: Co-Founder & CTO, MediSensing Inc. / Ph.D. Candidate, Seoul National University of Science and Technology
-    - name: Email
-      value: seunggyu@medisensing.com
-    - name: Languages
-      value: Korean (Native), English (OPIc IH)
+roles:
+  - Ph.D. Candidate, Applied Artificial Intelligence, SEOULTECH
+  - Co-Founder & CTO, MediSensing Inc.
 
-- title: Education
-  type: time_table
-  contents:
-    - title: Ph.D. in Applied Artificial Intelligence
-      institution: Seoul National University of Science and Technology, Seoul, Republic of Korea
-      year: 2024 - Present
-      description:
-        - Advisor&#58; Prof. Seong-Eun Kim
-        - Research focus&#58; Respiratory sound analysis, domain generalization, edge audio AI
-        - Selected as AI Seoul Future Talent Doctoral Scholar (2026, Seoul Future Talent Foundation)
-    - title: M.S. in Applied Artificial Intelligence
-      institution: Seoul National University of Science and Technology, Seoul, Republic of Korea
-      year: 2024 - 2026
-    - title: B.S. in Electronic Engineering
-      institution: Seoul National University of Science and Technology, Seoul, Republic of Korea
-      year: 2017 - 2024
+bio: >-
+  I'm a Ph.D. candidate in Applied Artificial Intelligence at Seoul National University of
+  Science and Technology (SEOULTECH), advised by Prof. Seong-Eun Kim, and Co-Founder & CTO
+  of MediSensing. I work on body-sound AI: lung sounds, cough and voice. My focus is models
+  that keep working when the recording device, the patient or the environment changes, and
+  that are small enough to run on phones and embedded hardware.
 
-- title: Experience
-  type: time_table
-  contents:
-    - title: Co-Founder & Chief Technology Officer
-      institution: MediSensing Inc., Seoul, Republic of Korea
-      year: 2024 - Present
-      description:
-        - Lung-sound AI startup spun off from Seoul Tech Applied AI Lab
-        - Led development of core respiratory sound AI algorithms (5 international publications, 6 patents)
-        - Drove Hanil Electric digital stethoscope partnership (NDA → MOU, FDA 510(k) pathway)
-        - Architected on-device audio AI (80KB Edge SED on ESP32-S3) for home respiratory monitoring
-        - Submitted 4 entries to DCASE 2026 (Tasks 1, 2, 4, 7) as main contributor
-    - title: TechCore Program Participant
-      institution: 2026 Cohort
-      year: 2026
+interests:
+  - Body sound analysis (lung sounds, cough, voice)
+  - Domain generalization & adaptation for medical audio
+  - On-device audio & speech AI
+  - Sound event detection
+  - Multimodal health AI
 
-- title: Research Interests
-  type: nested_list
-  contents:
-    - title: Respiratory Sound Analysis
-      items:
-        - Pediatric lung sound classification and abnormality detection
-        - Cross-device generalization (electronic stethoscope ↔ smartphone microphone)
-    - title: Domain Generalization for Audio AI
-      items:
-        - Leave-One-Dataset-Out (LODO) generalization across ICBHI, SPRSound, HF-Lung
-        - Patient-aware feature alignment and breathing-cycle multi-cycle learning
-    - title: Sound Event Detection (SED)
-      items:
-        - DCASE challenge submissions (2026 Tasks 1, 2, 4, 7)
-        - Pediatric event detection (cry, cough, sneeze) for home monitoring
-    - title: Edge AI / On-device Audio ML
-      items:
-        - Lightweight (80KB) audio classifiers for MCU on-device inference
-        - ESP32-S3 firmware integration with multi-microphone arrays
-    - title: Multimodal Health AI
-      items:
-        - Smartphone-based self-auscultation (iMedic, CHI 2025)
-        - Non-contact home respiratory monitoring for infants and seniors
+news:
+  - date: Oct 2026
+    text: Selected as an Outstanding Researcher, AI Seoul Future Talent Doctoral Scholarship (Seoul Future Talent Foundation).
+  - date: Sep 2026
+    text: "**Grand Prize**, Graduate Student Startup Club Competition (Lab-Specialized Startup-Leading University Program)."
+  - date: Jul 2026
+    text: "Journal paper on smartphone lung-sound screening published online in [IEEE JBHI](/projects/jbhi-2026-smartphone-lung-sound/)."
+  - date: Jul 2026
+    text: Co-authored paper on spiking transformers presented at ICML 2026, Seoul.
+  - date: Jun 2026
+    text: "[DCASE 2026 Challenge Task 3](/projects/dcase2026-task3-semantic-acoustic-imaging/): **2nd place** (team ranking, Track A)."
+  - date: May 2026
+    text: "Presented [PC-MCL](/projects/pc-mcl-icassp2026/) at ICASSP 2026, Barcelona."
+  - date: Apr 2026
+    text: Korean patent KR 10-2949975 (smartphone-based lung sound classification) registered.
 
-- title: Selected Publications
-  type: time_table
-  contents:
-    - title: Smartphone-based Abnormal Lung Sound Detection
-      institution: IEEE Journal of Biomedical and Health Informatics (JBHI) · Under Review
-      year: 2026
-    - title: "PC-MCL: Patient-aware Multi-Cycle Contrastive Learning for Respiratory Sound Classification"
-      institution: IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)
-      year: 2026
-    - title: "PAFA: Patient-Aware Feature Alignment for Respiratory Sound Analysis"
-      institution: INTERSPEECH
-      year: 2025
-    - title: "iMedic: Smartphone-based Self-Auscultation for Pediatric Lung Sound Screening"
-      institution: ACM CHI Conference on Human Factors in Computing Systems
-      year: 2025
-    - title: Knowledge Distillation-based Respiratory Sound Classification
-      institution: IEEE Open Journal of Engineering in Medicine and Biology (OJEMB)
-      year: 2024
+experience:
+  - when: May 2024 – Present
+    what: Co-Founder & CTO
+    where: MediSensing Inc.
+    detail: Leads R&D on body-sound AI and on-device audio, and the Dadok AI parenting agent app (iOS).
+  - when: Fall 2026
+    what: Teaching Assistant, Artificial Intelligence Systems (undergraduate)
+    where: SEOULTECH
+    detail: "Lecture: On-Device LLMs"
+  - when: Apr. 2026 – Jul. 2026
+    what: TeX-Corps 2026 Cohort
+    where: Lab-based startup customer discovery program
+    detail: Includes I-Corps field training in Washington, D.C.
+  - when: Dec. 2024 – Jan. 2025
+    what: Visiting Research Intern
+    where: DataX Lab (Prof. Mingon Kang), University of Nevada, Las Vegas
 
-- title: Challenge Submissions
-  type: time_table
-  contents:
-    - title: DCASE 2026 Challenge — Tasks 1, 2, 4, 7
-      institution: Detection and Classification of Acoustic Scenes and Events
-      year: 2026
-      description:
-        - Main contributor on Task 2 (Noise-aware Unsupervised Anomalous Sound Detection) and Task 4 (Spatial Semantic Segmentation)
-        - Co-author on Task 1 (Heterogeneous Audio Classification) and Task 7 (Domain-Agnostic Incremental Learning)
-        - Results to be announced 2026-06-30
+education:
+  - when: Mar. 2026 – Present
+    what: Ph.D., Applied Artificial Intelligence
+    where: SEOULTECH
+    detail: "Advisor: Prof. Seong-Eun Kim"
+  - when: Mar. 2024 – Feb. 2026
+    what: M.S., Applied Artificial Intelligence
+    where: SEOULTECH
+    detail: "Thesis: An Artificial Intelligence System for Pediatric Respiratory Sound Screening Using Smartphone Microphones"
+  - when: Mar. 2017 – Feb. 2024
+    what: B.S., Electronic Engineering
+    where: SEOULTECH
 
-- title: Patents
-  type: time_table
-  contents:
-    - title: Knowledge Propagation Network-based Respiratory Sound Classification
-      institution: Registered (Korea)
-      year: 2024
-    - title: Mobile Device-based Respiratory Sound Classification
-      institution: Registered (Korea) · Technology-transferred to MediSensing Inc.
-      year: 2025
-    - title: 4 additional patent applications (Patient Alignment, Breathing-Cycle Transfer, Clinical Decision Support, etc.)
-      institution: Filed (Korea)
-      year: 2026
+awards:
+  - year: "2026"
+    text: "**Grand Prize**, Graduate Student Startup Club Competition, 2026 Lab-Specialized Startup-Leading University Program (NRF · COMPA)"
+  - year: "2026"
+    text: AI Seoul Future Talent Doctoral Scholarship, Seoul Future Talent Foundation — selected as Outstanding Researcher
+  - year: "2026"
+    text: "**2nd Place**, DCASE 2026 Challenge Task 3 (Semantic Acoustic Imaging), Track A team ranking"
+  - year: "2026"
+    text: "**1st Place (tied)**, NeckVibe Challenge NPVH Detection (AUC 0.861), INTERSPEECH 2026 — team, supervising role"
+  - year: "2026"
+    text: "**3rd Place**, NeckVibe Challenge PVH Detection (AUC 0.891), INTERSPEECH 2026 — team, supervising role"
+  - year: "2026"
+    text: Selected, TeX-Corps 2026 Cohort (Korean Government Lab-based Startup Program)
+  - year: "2025"
+    text: Best Paper Award, Korean Institute of Electrical and Electronic Engineers (KIEEE) Annual Conference
 
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 2026
-      items:
-        - AI Seoul Future Talent Doctoral Scholarship — Seoul Future Talent Foundation
-    - year: 2026
-      items:
-        - Selected — TechCore Program (Korean Government Entrepreneurship Initiative)
+patents:
+  - "Mobile terminal-based lung sound classification method and system (이동 단말기 기반의 폐음 분류 방법 및 시스템) — **KR 10-2949975**, registered Apr. 2026 (S.-E. Kim, S. Jeong)"
 
-- title: Service to Community
-  type: list
-  contents:
-    - Reviewer — IEEE ICASSP 2026 (International Conference on Acoustics, Speech and Signal Processing)
+service:
+  - Reviewer, IEEE ICASSP 2027
+  - Reviewer, IEEE ICASSP 2026
 
-- title: Technical Skills
-  type: nested_list
-  contents:
-    - title: Programming
-      items:
-        - Python, C / C++
-    - title: AI / ML Frameworks
-      items:
-        - PyTorch, TensorFlow
-    - title: Audio / Signal Processing
-      items:
-        - torchaudio, librosa
-    - title: Hardware / Embedded
-      items:
-        - ESP32-S3, KiCad (learning)
-        - ESP-IDF, TensorFlow Lite Micro
-    - title: App / Backend
-      items:
-        - FastAPI, Firebase
-    - title: Infra / DevOps
-      items:
-        - Docker, Linux, NAS / AWS, Git / GitHub
-
-- title: Online Presence
-  type: list
-  contents:
-    - <u>Portfolio&#58;</u> <a href="https://wa976.github.io/">wa976.github.io</a>
-    - <u>Google Scholar&#58;</u> <a href="https://scholar.google.com/citations?user=BqS-vtAAAAAJ">Seunggyu Jeong</a>
-    - <u>LinkedIn&#58;</u> <a href="https://www.linkedin.com/in/seung-gyu-jeong-wa9433/">linkedin.com/in/seung-gyu-jeong-wa9433</a>
+skills:
+  - k: Programming
+    v: Python, C / C++
+  - k: ML
+    v: PyTorch, TensorFlow
+  - k: Audio
+    v: torchaudio, librosa
+  - k: Embedded
+    v: ESP32-S3, ESP-IDF, TensorFlow Lite Micro, KiCad
+  - k: App / Backend
+    v: FastAPI, Firebase
+  - k: Infra
+    v: Docker, Linux, AWS, Git
+  - k: Languages
+    v: Korean (native), English (OPIc IH)

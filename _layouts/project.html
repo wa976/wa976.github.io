@@ -1,0 +1,101 @@
+---
+layout: default
+body_class: page-project
+---
+{% assign p = site.data.projects | where: "slug", page.slug | first %}
+{% assign all = site.data.projects %}
+{% for item in all %}{% if item.slug == p.slug %}{% assign idx = forloop.index0 %}{% endif %}{% endfor %}
+{% assign prev_i = idx | minus: 1 %}
+{% assign next_i = idx | plus: 1 %}
+
+<article class="wrap project">
+  <a class="back" href="{{ '/projects/' | relative_url }}">← All projects</a>
+
+  <header class="project-head">
+    <div class="badges">
+      <span class="badge venue">{{ p.venue_long | default: p.venue }}</span>
+      {% if p.award %}<span class="badge award">{{ p.award }}</span>{% endif %}
+      {% if p.role %}<span class="badge role">{{ p.role }}</span>{% endif %}
+    </div>
+    <h1>{{ p.title }}</h1>
+    <p class="authors">{{ p.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+    <p class="lede">{{ p.tagline }}</p>
+    <div class="links">
+      {% for l in p.links %}
+        {% assign key = l[0] %}<a class="btn" href="{{ l[1] | relative_url }}" target="_blank" rel="noopener">{{ site.data.link_labels[key] | default: key }}</a>
+      {% endfor %}
+    </div>
+  </header>
+
+  {% if p.metrics %}
+    <section class="metrics" aria-label="Key numbers">
+      {% for m in p.metrics %}
+        <div class="metric"><span class="metric-value">{{ m.value }}</span><span class="metric-label">{{ m.label }}</span></div>
+      {% endfor %}
+    </section>
+  {% endif %}
+
+  {% assign hero = p.figures | first %}
+  {% if hero %}
+    <figure class="fig hero-fig">
+      <button type="button" class="fig-frame" data-zoom aria-label="Enlarge figure"><img src="{{ hero.src | relative_url }}" alt="{{ hero.caption | escape }}" /></button>
+      <figcaption>{{ hero.caption }}</figcaption>
+    </figure>
+  {% endif %}
+
+  <div class="project-body">
+    {% if p.problem %}
+      <section><h2>Problem</h2>{{ p.problem | markdownify }}</section>
+    {% endif %}
+    {% if p.approach %}
+      <section><h2>Approach</h2>{{ p.approach | markdownify }}</section>
+    {% endif %}
+    {% if p.result %}
+      <section><h2>Results</h2>{{ p.result | markdownify }}
+        {% for t in p.tables %}
+          <div class="table-wrap">
+            <table>
+              <thead><tr>{% for h in t.head %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+              <tbody>
+                {% for r in t.rows %}<tr>{% for c in r %}<td>{{ c | escape | replace_first: '**', '<strong>' | replace_first: '**', '</strong>' }}</td>{% endfor %}</tr>{% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% if t.caption %}<p class="table-caption">{{ t.caption }}</p>{% endif %}
+        {% endfor %}
+      </section>
+    {% endif %}
+    {% if p.extra %}
+      {% for s in p.extra %}<section><h2>{{ s.label }}</h2>{{ s.text | markdownify }}</section>{% endfor %}
+    {% endif %}
+
+    {% if p.figures.size > 1 %}
+      <section class="more-figs">
+        <h2>Figures</h2>
+        <div class="fig-grid">
+          {% for f in p.figures offset: 1 %}
+            <figure class="fig">
+              <button type="button" class="fig-frame" data-zoom aria-label="Enlarge figure"><img src="{{ f.src | relative_url }}" alt="{{ f.caption | escape }}" loading="lazy" /></button>
+              <figcaption>{{ f.caption }}</figcaption>
+            </figure>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if p.note %}<p class="note">{{ p.note }}</p>{% endif %}
+
+    {% if p.topics %}
+      <p class="tags">{% for t in p.topics %}{% assign tl = site.data.topics | where: "key", t | first %}<span class="tag">{{ tl.label | default: t }}</span>{% endfor %}</p>
+    {% endif %}
+  </div>
+
+  <nav class="pager" aria-label="More projects">
+    {% if idx > 0 %}{% assign q = all[prev_i] %}
+      <a class="pager-prev" href="{{ '/projects/' | append: q.slug | append: '/' | relative_url }}"><span>← Previous</span><strong>{{ q.short }}</strong></a>
+    {% else %}<span></span>{% endif %}
+    {% if next_i < all.size %}{% assign q = all[next_i] %}
+      <a class="pager-next" href="{{ '/projects/' | append: q.slug | append: '/' | relative_url }}"><span>Next →</span><strong>{{ q.short }}</strong></a>
+    {% endif %}
+  </nav>
+</article>

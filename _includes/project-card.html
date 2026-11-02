@@ -1,0 +1,18 @@
+{% assign p = include.p %}
+<a class="card" href="{{ '/projects/' | append: p.slug | append: '/' | relative_url }}" data-topics="{{ p.topics | join: ' ' }}">
+  {% if p.thumb %}
+    <div class="card-thumb"><img src="{{ p.thumb | relative_url }}" alt="" loading="lazy" /></div>
+  {% else %}
+    <div class="card-thumb card-thumb-text"><span class="tt-venue">{{ p.venue }}</span><span class="tt-text">{{ p.thumb_text | default: p.short }}</span></div>
+  {% endif %}
+  <div class="card-body">
+    <div class="badges">
+      <span class="badge venue">{{ p.venue }}</span>
+      {% if p.award %}<span class="badge award">{{ p.award_short | default: p.award }}</span>{% endif %}
+    </div>
+    <h3>{{ p.short }}</h3>
+    <p class="card-title">{{ p.title }}</p>
+    <p class="card-tagline">{{ p.tagline }}</p>
+    <span class="card-more">Read more <span aria-hidden="true">→</span></span>
+  </div>
+</a>

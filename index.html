@@ -1,0 +1,120 @@
+---
+layout: default
+body_class: page-home
+---
+{% assign cv = site.data.cv %}
+
+<section id="about" class="wrap hero">
+  <img class="avatar" src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="Seunggyu Jeong" width="200" height="200" />
+  <div class="hero-text">
+    <h1>{{ site.author.name }}</h1>
+    <ul class="roles">
+      {% for r in cv.roles %}<li>{{ r }}</li>{% endfor %}
+    </ul>
+    <div class="bio">{{ cv.bio | markdownify }}</div>
+    <p class="interests">{% for i in cv.interests %}<span class="tag">{{ i }}</span>{% endfor %}</p>
+    <div class="links">
+      <a class="btn btn-primary" href="mailto:{{ site.author.email }}">Email</a>
+      <a class="btn" href="{{ site.author.scholar }}" target="_blank" rel="noopener">Google Scholar</a>
+      <a class="btn" href="{{ site.author.github }}" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="{{ site.author.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<section id="news" class="wrap block">
+  <h2>News</h2>
+  <ul class="news">
+    {% for n in cv.news %}
+      <li><time>{{ n.date }}</time><span>{{ n.text | markdownify | remove: '<p>' | remove: '</p>' }}</span></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="projects" class="wrap block">
+  <div class="block-head">
+    <h2>Projects</h2>
+    <a class="see-all" href="{{ '/projects/' | relative_url }}">All projects →</a>
+  </div>
+  <p class="block-intro">One page per paper or challenge entry: the problem, what we built, and the numbers.</p>
+  {% include project-filter.html %}
+  <div class="grid">
+    {% for p in site.data.projects %}
+      {% include project-card.html p=p %}
+    {% endfor %}
+  </div>
+</section>
+
+<section id="publications" class="wrap block">
+  <h2>Publications</h2>
+  {% for g in site.data.publications %}
+    <h3 class="group-title">{{ g.group }}</h3>
+    <ol class="pubs">
+      {% for it in g.items %}
+        <li class="pub">
+          <span class="pub-venue">{{ it.venue }}</span>
+          <div class="pub-main">
+            {% if it.page %}
+              <a class="pub-title" href="{{ '/projects/' | append: it.page | append: '/' | relative_url }}">{{ it.title }}</a>
+            {% else %}
+              <span class="pub-title">{{ it.title }}</span>
+            {% endif %}
+            <span class="pub-authors">{{ it.authors | markdownify | remove: '<p>' | remove: '</p>' }}</span>
+            {% if it.note %}<span class="pub-note">{{ it.note }}</span>{% endif %}
+            <span class="pub-links">
+              {% if it.page %}<a href="{{ '/projects/' | append: it.page | append: '/' | relative_url }}">Project page</a>{% endif %}
+              {% for l in it.links %}{% assign key = l[0] %}<a href="{{ l[1] }}" target="_blank" rel="noopener">{{ site.data.link_labels[key] | default: key }}</a>{% endfor %}
+            </span>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% endfor %}
+</section>
+
+<section id="experience" class="wrap block two-col">
+  <div>
+    <h2>Experience</h2>
+    <ul class="timeline">
+      {% for e in cv.experience %}
+        <li><span class="when">{{ e.when }}</span><strong>{{ e.what }}</strong>{% if e.where %}<span class="where">{{ e.where }}</span>{% endif %}{% if e.detail %}<span class="detail">{{ e.detail }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>Education</h2>
+    <ul class="timeline">
+      {% for e in cv.education %}
+        <li><span class="when">{{ e.when }}</span><strong>{{ e.what }}</strong>{% if e.where %}<span class="where">{{ e.where }}</span>{% endif %}{% if e.detail %}<span class="detail">{{ e.detail }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section id="awards" class="wrap block">
+  <h2>Awards &amp; Honors</h2>
+  <ul class="plain">
+    {% for a in cv.awards %}<li><time>{{ a.year }}</time><span>{{ a.text | markdownify | remove: '<p>' | remove: '</p>' }}</span></li>{% endfor %}
+  </ul>
+</section>
+
+<section class="wrap block three-col">
+  <div>
+    <h2>Patent</h2>
+    <ul class="plain-simple">
+      {% for x in cv.patents %}<li>{{ x | markdownify | remove: '<p>' | remove: '</p>' }}</li>{% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>Service</h2>
+    <ul class="plain-simple">
+      {% for x in cv.service %}<li>{{ x }}</li>{% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>Skills</h2>
+    <dl class="skills">
+      {% for s in cv.skills %}<dt>{{ s.k }}</dt><dd>{{ s.v }}</dd>{% endfor %}
+    </dl>
+  </div>
+</section>
