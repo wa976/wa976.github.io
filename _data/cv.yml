@@ -16,23 +16,20 @@ bio_lead:
 research:
   - label: "Main"
     label_ko: "주 연구"
-    en: "Respiratory sound analysis that stays reliable when the recording device or the patient changes, from digital stethoscopes to smartphone microphones (domain adaptation and generalization)."
-    ko: "녹음 기기나 환자가 바뀌어도 성능이 유지되는 호흡음(폐음) 분석. 디지털 청진기부터 스마트폰 마이크까지 다루며, 도메인 적응·일반화를 연구합니다."
+    en: "Respiratory sounds such as lung sounds and cough, with models that stay reliable when the recording device or the patient changes."
+    ko: "폐음·기침 같은 호흡기 소리. 녹음 기기나 환자가 바뀌어도 성능이 유지되는 모델을 연구합니다."
   - label: "Also"
     label_ko: "부 연구"
     items:
-      - en: "Low-complexity audio models for on-device use (knowledge distillation)"
-        ko: "온디바이스용 경량 오디오 모델 (지식 증류)"
+      - en: "On-device audio AI"
+        ko: "온디바이스 오디오 AI"
         link: /projects/dcase2025-task1-device-aware-kd/
-      - en: "Sound event detection and spatial acoustic imaging"
-        ko: "소리 이벤트 탐지·공간 음향 이미징"
+      - en: "Sound event detection and localization"
+        ko: "소리 이벤트 탐지·위치 추정"
         link: /projects/dcase2026-task3-semantic-acoustic-imaging/
-      - en: "Voice disorder detection from wearable neck-accelerometer signals"
-        ko: "목 가속도계 웨어러블 신호 기반 음성 장애 탐지"
+      - en: "Voice health monitoring with wearable sensors"
+        ko: "웨어러블 센서 기반 음성 건강 모니터링"
         link: /projects/neckvibe-interspeech2026/
-      - en: "Co-authored work on spiking transformers and on speech prosody for VR agents"
-        ko: "공동 연구: 스파이킹 트랜스포머, 음성 운율 기반 VR 에이전트"
-        link: /#publications
 
 bio:
   - en: "As co-founder and CTO of MediSensing, I bring this research into products."
@@ -60,8 +57,8 @@ highlights:
 
 news:
   - date: "2026-10"
-    en: "Selected as an Outstanding Researcher, AI Seoul Future Talent Doctoral Scholarship (Seoul Future Talent Foundation)."
-    ko: "서울미래인재재단 AI서울테크 박사과정 장학생 우수연구생으로 선정되었습니다."
+    en: "Selected as an Outstanding Researcher (top tier), AI Seoul Future Talent Doctoral Scholarship (Seoul Future Talent Foundation)."
+    ko: "서울미래인재재단 AI서울테크 박사과정 장학생 우수연구생(최우수)으로 선정되었습니다."
   - date: "2026-10"
     en: "Gave the On-Device LLMs lecture in the undergraduate AI Systems course at SEOULTECH."
     ko: "서울과기대 학부 인공지능시스템 수업에서 온디바이스 LLM 강의를 했습니다."
@@ -180,8 +177,8 @@ awards:
     en: "**Grand Prize**, Graduate Student Startup Club Competition, 2026 Lab-Specialized Startup-Leading University Program (NRF · COMPA)"
     ko: "**대상**, 2026 실험실특화형 창업선도대학 대학원생 창업동아리 창업경진대회 (한국연구재단·과학기술일자리진흥원)"
   - year: "2026"
-    en: "AI Seoul Future Talent Doctoral Scholarship, Seoul Future Talent Foundation — selected as Outstanding Researcher"
-    ko: "AI서울테크 박사과정 장학생, 서울미래인재재단 — 우수연구생 선정"
+    en: "AI Seoul Future Talent Doctoral Scholarship, Seoul Future Talent Foundation — selected as Outstanding Researcher (top tier)"
+    ko: "AI서울테크 박사과정 장학생, 서울미래인재재단 — 우수연구생(최우수) 선정"
   - year: "2026"
     en: "**2nd Place**, DCASE 2026 Challenge Task 3 (Semantic Acoustic Imaging), Track A team ranking"
     ko: "**2위**, DCASE 2026 챌린지 Task 3 (Semantic Acoustic Imaging), Track A 팀 순위"
