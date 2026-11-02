@@ -10,7 +10,7 @@ English and Korean are both in the HTML; the EN/한 button shows one of them.
 | Name, email, profile links | `_config.yml` (`author:`) |
 | Bio, highlights, news, startup timeline, experience, education, awards, patents, service, skills | `_data/cv.yml` |
 | Publication list on the home page | `_data/publications.yml` |
-| Project pages (papers, products, programs, teaching) | `_data/projects.yml` + a stub `projects/<slug>.md` |
+| Project pages (papers, products, programs) | `_data/projects.yml` + a stub `projects/<slug>.md` |
 | Project-grid tabs | `_data/types.yml` |
 | Interface words (section titles, buttons) | `_data/ui.yml` |
 | Link button labels | `_data/link_labels.yml` |
@@ -26,7 +26,7 @@ The theme is light unless the visitor switches to dark.
 
 ## Add a project page
 
-1. Add an entry to `_data/projects.yml` with a new `slug` and `type` (`research`, `startup` or `teaching`).
+1. Add an entry to `_data/projects.yml` with a new `slug` and `type` (`research` or `startup`).
    Research pages use `problem` / `approach` / `result` (+ `metrics`, `tables`); other pages use `facts` and `sections`.
 2. Create `projects/<slug>.md` containing only front matter:
 

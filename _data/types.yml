@@ -1,4 +1,3 @@
 # Project-grid tabs. `key` must match the `type` values in projects.yml.
 - {key: research, ui: type_research}
 - {key: startup, ui: type_startup}
-- {key: teaching, ui: type_teaching}

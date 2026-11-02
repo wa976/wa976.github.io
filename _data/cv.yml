@@ -9,20 +9,34 @@ roles:
     ko: "메디센싱 공동창업자·CTO"
 
 bio_lead:
-  en: "I build AI that reads the sounds of the body: lung sounds, cough and voice."
-  ko: "몸에서 나는 소리(폐음·기침·목소리)를 읽는 AI를 만듭니다."
-bio:
-  - en: "My research focuses on models that keep working when the recording device, the patient or the environment changes."
-    ko: "녹음 기기나 사람, 주변 환경이 바뀌어도 성능이 유지되는 모델을 연구합니다."
-  - en: "I also make these models small enough to run on phones and embedded hardware, and bring them into products as co-founder and CTO of MediSensing."
-    ko: "이 모델을 휴대폰과 임베디드 기기에서 돌아갈 만큼 작게 만들고, 메디센싱 공동창업자·CTO로서 제품에 담고 있습니다."
+  en: "I research AI for biomedical acoustic signals."
+  ko: "생체음향신호 AI를 연구합니다."
 
-interests:
-  - {en: "Body sound analysis (lung sounds, cough, voice)", ko: "몸의 소리 분석 (폐음·기침·목소리)"}
-  - {en: "Domain generalization & adaptation for medical audio", ko: "의료 오디오 도메인 일반화·적응"}
-  - {en: "On-device audio & speech AI", ko: "온디바이스 오디오·음성 AI"}
-  - {en: "Sound event detection", ko: "소리 이벤트 탐지"}
-  - {en: "Multimodal health AI", ko: "멀티모달 헬스 AI"}
+# Rows under the lead line. `items` render as a list; `link` is optional.
+research:
+  - label: "Main"
+    label_ko: "주 연구"
+    en: "Respiratory sound analysis that stays reliable when the recording device or the patient changes, from digital stethoscopes to smartphone microphones (domain adaptation and generalization)."
+    ko: "녹음 기기나 환자가 바뀌어도 성능이 유지되는 호흡음(폐음) 분석. 디지털 청진기부터 스마트폰 마이크까지 다루며, 도메인 적응·일반화를 연구합니다."
+  - label: "Also"
+    label_ko: "부 연구"
+    items:
+      - en: "Low-complexity audio models for on-device use (knowledge distillation)"
+        ko: "온디바이스용 경량 오디오 모델 (지식 증류)"
+        link: /projects/dcase2025-task1-device-aware-kd/
+      - en: "Sound event detection and spatial acoustic imaging"
+        ko: "소리 이벤트 탐지·공간 음향 이미징"
+        link: /projects/dcase2026-task3-semantic-acoustic-imaging/
+      - en: "Voice disorder detection from wearable neck-accelerometer signals"
+        ko: "목 가속도계 웨어러블 신호 기반 음성 장애 탐지"
+        link: /projects/neckvibe-interspeech2026/
+      - en: "Co-authored work on spiking transformers and on speech prosody for VR agents"
+        ko: "공동 연구: 스파이킹 트랜스포머, 음성 운율 기반 VR 에이전트"
+        link: /#publications
+
+bio:
+  - en: "As co-founder and CTO of MediSensing, I bring this research into products."
+    ko: "메디센싱 공동창업자·CTO로서 이 연구를 제품으로 옮기고 있습니다."
 
 highlights:
   - value: "IEEE JBHI"
@@ -49,11 +63,11 @@ news:
     en: "Selected as an Outstanding Researcher, AI Seoul Future Talent Doctoral Scholarship (Seoul Future Talent Foundation)."
     ko: "서울미래인재재단 AI서울테크 박사과정 장학생 우수연구생으로 선정되었습니다."
   - date: "2026-10"
-    en: "Gave the [On-Device LLMs lecture](/projects/ondevice-llm-lecture/) in the undergraduate AI Systems course at SEOULTECH."
-    ko: "서울과기대 학부 인공지능시스템 수업에서 [온디바이스 LLM 강의](/projects/ondevice-llm-lecture/)를 했습니다."
+    en: "Gave the On-Device LLMs lecture in the undergraduate AI Systems course at SEOULTECH."
+    ko: "서울과기대 학부 인공지능시스템 수업에서 온디바이스 LLM 강의를 했습니다."
   - date: "2026-09"
-    en: "Our startup club SoundCare won the **Grand Prize** at the 2026 graduate startup club competition ([details](/projects/soundcare-grand-prize/))."
-    ko: "창업동아리 사운드케어가 2026 대학원생 창업동아리 창업경진대회에서 **대상**을 받았습니다([자세히](/projects/soundcare-grand-prize/))."
+    en: "Our startup club SoundCare won the **Grand Prize** at the 2026 graduate startup club competition, pitching [Dadok](/projects/dadok-app/)."
+    ko: "창업동아리 사운드케어가 [다독](/projects/dadok-app/)으로 2026 대학원생 창업동아리 창업경진대회 **대상**을 받았습니다."
   - date: "2026-08"
     en: "Launched [Dadok](/projects/dadok-app/), our AI parenting agent app, on the App Store."
     ko: "육아 AI 에이전트 앱 [다독](/projects/dadok-app/)을 App Store에 출시했습니다."
@@ -80,7 +94,7 @@ startup:
   - date: "2026-09"
     en: "**Grand Prize**, 2026 graduate startup club competition, pitching Dadok."
     ko: "2026 대학원생 창업동아리 창업경진대회 **대상** (다독 발표)."
-    link: /projects/soundcare-grand-prize/
+    link: /projects/dadok-app/
   - date: "2026-08"
     en: "Launched **Dadok**, an AI parenting agent app, on the App Store."
     ko: "육아 AI 에이전트 앱 **다독**을 App Store에 출시."
@@ -95,7 +109,6 @@ startup:
   - date: "2026-03"
     en: "Started **SoundCare**, a graduate startup club (SEOULTECH BIZ-Lab), as team lead."
     ko: "대학원생 창업동아리 **사운드케어**(서울과기대 BIZ-Lab) 시작, 팀 대표."
-    link: /projects/soundcare-grand-prize/
   - date: "2024"
     en: "Built **iMedic**, a smartphone self-auscultation app prototype, later published at CHI 2025."
     ko: "스마트폰 자가 청진 앱 시제품 **iMedic** 개발, 이후 CHI 2025에 발표."
@@ -111,8 +124,8 @@ experience:
     what_ko: "공동창업자·CTO"
     where: "MediSensing Inc."
     where_ko: "메디센싱"
-    detail: "R&D on body-sound AI and on-device audio; product and AI direction for Dadok."
-    detail_ko: "몸의 소리 AI·온디바이스 오디오 연구개발, 다독 제품·AI 방향."
+    detail: "R&D on AI for biomedical acoustic signals and on-device audio; product and AI direction for Dadok."
+    detail_ko: "생체음향신호 AI·온디바이스 오디오 연구개발, 다독 제품·AI 방향."
   - when: "2026.03 – 2026.12"
     what: "Team Lead, SoundCare graduate startup club"
     what_ko: "대학원생 창업동아리 사운드케어 팀 대표"
@@ -132,11 +145,6 @@ experience:
     where_ko: "실험실 창업탐색 프로그램 (I-Corps 방식)"
     detail: "I-Corps training at George Washington University, Washington, D.C."
     detail_ko: "워싱턴 D.C. 조지워싱턴대 I-Corps 교육"
-  - when: "2024.12 – 2025.01"
-    what: "Visiting Research Intern"
-    what_ko: "방문 연구 인턴"
-    where: "DataX Lab (Prof. Mingon Kang), University of Nevada, Las Vegas"
-    where_ko: "네바다대학교 라스베이거스(UNLV) DataX Lab (Mingon Kang 교수)"
 
 education:
   - when: "2026.03 – Present"
@@ -154,6 +162,13 @@ education:
     where_ko: "서울과학기술대학교"
     detail: "Thesis: An Artificial Intelligence System for Pediatric Respiratory Sound Screening Using Smartphone Microphones"
     detail_ko: "학위논문: An Artificial Intelligence System for Pediatric Respiratory Sound Screening Using Smartphone Microphones"
+  - when: "2024.12 – 2025.01"
+    what: "Visiting Student (research internship, non-degree)"
+    what_ko: "해외 연구인턴십 (비학위 방문 학생)"
+    where: "University of Nevada, Las Vegas (UNLV), USA — DataX Lab, Dept. of Computer Science (Prof. Mingon Kang)"
+    where_ko: "미국 네바다주립대 라스베이거스(UNLV) 컴퓨터공학과 DataX Lab (강민곤 교수)"
+    detail: "SEOULTECH Graduate Overseas Research Internship. Project: smartphone-based abnormal lung sound detection."
+    detail_ko: "서울과기대 대학원생 해외 연구인턴십. 과제: 스마트폰 기반 이상 폐음 탐지 AI."
   - when: "2017.03 – 2024.02"
     what: "B.S., Electronic Engineering"
     what_ko: "학사, 전자공학"

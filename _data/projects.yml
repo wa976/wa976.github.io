@@ -1,4 +1,4 @@
-# One entry = one /projects/<slug>/ page, shown in this order. `type` = research | startup | teaching (grid tabs).
+# One entry = one /projects/<slug>/ page, shown in this order. `type` = research | startup (grid tabs).
 # Each entry needs a stub page at projects/<slug>.md (GitHub Pages runs no generator plugins).
 # Text fields have an optional *_ko twin used by the EN/KO toggle.
 
@@ -154,6 +154,10 @@
   venue_ko: App Store · 2026
   venue_long: iOS app by MediSensing · launched Aug. 2026
   venue_long_ko: 메디센싱 iOS 앱 · 2026년 8월 출시
+  award: Grand Prize, 2026 graduate startup club competition
+  award_ko: 2026 대학원생 창업동아리 창업경진대회 대상
+  award_short: Grand Prize
+  award_short_ko: 대상
   role: Co-founder & CTO
   role_ko: 공동창업자·CTO
   tagline: A parenting app that turns one spoken sentence into baby-care records. On the App Store since
@@ -176,6 +180,10 @@
     k_ko: 역할
     v: 'Co-founder & CTO: product and AI direction'
     v_ko: '공동창업자·CTO: 제품·AI 방향'
+  - k: Award
+    k_ko: 수상
+    v: Grand Prize, 2026 graduate startup club competition (Sep. 14, 2026)
+    v_ko: 2026 대학원생 창업동아리 창업경진대회 대상 (2026년 9월 14일)
   sections:
   - label: Why
     label_ko: 왜 만들었나
@@ -208,20 +216,28 @@
   - label: My role
     label_ko: 내 역할
     text: As co-founder and CTO of MediSensing, I set the product and AI direction for Dadok, which the
-      MediSensing team builds and runs. Dadok is also the item of SoundCare, the graduate startup club
-      I lead, which won the Grand Prize at the 2026 graduate startup club competition ([project page](/projects/soundcare-grand-prize/)).
-    text_ko: 메디센싱 공동창업자·CTO로서 다독의 제품·AI 방향을 정하고, 개발과 운영은 메디센싱 팀이 함께 합니다. 다독은 제가 이끄는 대학원생 창업동아리 사운드케어의
-      아이템이기도 하며, 2026 대학원생 창업동아리 창업경진대회에서 대상을 받았습니다([프로젝트 페이지](/projects/soundcare-grand-prize/)).
+      MediSensing team builds and runs.
+    text_ko: 메디센싱 공동창업자·CTO로서 다독의 제품·AI 방향을 정하고, 개발과 운영은 메디센싱 팀이 함께 합니다.
+  - label: Grand Prize
+    label_ko: 대상 수상
+    text: Dadok is also the item of SoundCare, the graduate startup club I lead in SEOULTECH's 2026 BIZ-Lab
+      program. On September 14, 2026, at Kangwon National University, we pitched Dadok at the startup
+      competition of the 2026 Lab-Specialized Startup-Leading University graduate student startup club
+      program and received the Grand Prize.
+    text_ko: 다독은 제가 팀 대표를 맡은 서울과기대 2026 BIZ-Lab 대학원생 창업동아리 사운드케어의 아이템이기도 합니다. 2026년 9월 14일 강원대학교에서 열린
+      2026 실험실특화형 창업선도대학 대학원생 창업동아리 역량강화 프로그램 창업경진대회에서 다독을 발표해 대상을 받았습니다.
   links:
     app_store: https://apps.apple.com/kr/app/id6797743406
   figures:
-  - src: /assets/img/projects/dadok-app/1-dadok-strip.webp
-    caption: 'App Store screenshots: say "fed baby food and water" and Dadok saves two records.'
-    caption_ko: 'App Store 화면: "이유식 먹이고 물도 먹였어"라고 말하면 기록 두 건이 저장됩니다.'
-  - src: /assets/img/projects/dadok-app/2-dadok-strip2.webp
-    caption: Voice logging, the daily rhythm graph and the lock-screen widget.
-    caption_ko: 음성 기록, 하루 리듬 그래프, 잠금화면 위젯.
-  thumb: /assets/img/projects/dadok-app/1-dadok-strip.webp
+  - src: /assets/img/projects/dadok-app/1-screens.webp
+    caption: 'Dadok screens (Oct. 2026 design): quick logging, questions answered from the baby''s records,
+      the weekly pattern view and family sharing.'
+    caption_ko: '다독 화면 (2026년 10월 디자인): 빠른 기록, 아이 기록을 바탕으로 한 질문·답변, 주간 패턴, 가족 공유.'
+  - src: /assets/img/projects/dadok-app/2-grand-prize.webp
+    caption: Receiving the Grand Prize for Dadok, September 14, 2026.
+    caption_ko: 다독으로 받은 창업경진대회 대상 시상, 2026년 9월 14일.
+    photo: true
+  thumb: /assets/img/projects/dadok-app/thumb.webp
 - slug: imedic-chi2025
   title: 'iMedic: Towards Smartphone-based Self-Auscultation Tool for AI-Powered Pediatric Respiratory
     Assessment'
@@ -602,60 +618,6 @@
       groups are no longer absorbed into a single class cluster.'
     caption_ko: 'PAFA를 쓴 학습 임베딩의 t-SNE: 하위 군집이 추가로 나타나, 일부 환자 그룹이 더 이상 하나의 클래스 군집에 흡수되지 않습니다.'
   thumb: /assets/img/projects/pafa-interspeech2025/1-model.webp
-- slug: soundcare-grand-prize
-  type:
-  - startup
-  title: SoundCare startup club — Grand Prize, 2026 graduate startup club competition
-  title_ko: 사운드케어 창업동아리 — 2026 대학원생 창업동아리 창업경진대회 대상
-  short: SoundCare · Grand Prize
-  short_ko: 사운드케어 · 대상
-  venue: Startup club · 2026
-  venue_ko: 창업동아리 · 2026
-  venue_long: SEOULTECH BIZ-Lab startup club · 2026
-  venue_long_ko: 서울과기대 BIZ-Lab 창업클럽 · 2026
-  award: Grand Prize
-  award_ko: 대상
-  role: Team lead
-  role_ko: 팀 대표
-  tagline: Led a graduate student startup club built around Dadok, and won the Grand Prize at the 2026
-    Lab-Specialized Startup-Leading University graduate startup club competition.
-  tagline_ko: 다독을 아이템으로 대학원생 창업동아리를 이끌었고, 2026 실험실특화형 창업선도대학 대학원생 창업동아리 창업경진대회에서 대상을 받았습니다.
-  facts:
-  - k: Club
-    k_ko: 동아리
-    v: SoundCare, SEOULTECH BIZ-Lab startup club
-    v_ko: 사운드케어 (서울과기대 BIZ-Lab 창업클럽)
-  - k: Period
-    k_ko: 기간
-    v: Mar.–Dec. 2026
-    v_ko: 2026년 3월~12월
-  - k: Item
-    k_ko: 아이템
-    v: Dadok
-    v_ko: 다독
-  - k: Award
-    k_ko: 수상
-    v: Grand Prize, Sep. 14, 2026
-    v_ko: 대상, 2026년 9월 14일
-  sections:
-  - label: The club
-    label_ko: 동아리
-    text: SoundCare is a graduate student startup club in SEOULTECH's 2026 BIZ-Lab program. I lead the
-      team, and our item is [Dadok](/projects/dadok-app/), MediSensing's AI parenting agent.
-    text_ko: 사운드케어는 서울과기대 2026 BIZ-Lab 프로그램의 대학원생 창업동아리입니다. 제가 팀을 이끌고 있고, 아이템은 메디센싱의 육아 AI 에이전트 [다독](/projects/dadok-app/)입니다.
-  - label: The competition
-    label_ko: 경진대회
-    text: On September 14, 2026, at Kangwon National University, we pitched Dadok at the startup competition
-      of the 2026 Lab-Specialized Startup-Leading University graduate student startup club program and
-      received the Grand Prize.
-    text_ko: 2026년 9월 14일 강원대학교에서 열린 2026 실험실특화형 창업선도대학 대학원생 창업동아리 역량강화 프로그램 창업경진대회에서 다독을 발표해 대상을 받았습니다.
-  figures:
-  - src: /assets/img/projects/soundcare-grand-prize/1-photo.webp
-    caption: Receiving the Grand Prize, September 14, 2026.
-    caption_ko: 대상 시상, 2026년 9월 14일.
-    photo: true
-  thumb: /assets/img/projects/soundcare-grand-prize/1-photo.webp
-  thumb_photo: true
 - slug: neckvibe-interspeech2026
   title: Attention-Based Multiple Instance Learning with Tabular Stacking for Ambulatory Detection of
     PVH and NPVH
@@ -928,77 +890,6 @@
 
       - 2026년 7월 워싱턴 D.C. 조지워싱턴대에서 2주간 I-Corps 교육'
   figures: []
-- slug: ondevice-llm-lecture
-  type:
-  - teaching
-  title: On-Device LLMs — lecture for Artificial Intelligence Systems
-  title_ko: On-Device LLMs — 인공지능시스템 수업 강의
-  short: On-device LLMs lecture
-  short_ko: 온디바이스 LLM 강의
-  venue: SEOULTECH · Oct. 2026
-  venue_ko: 서울과기대 · 2026년 10월
-  venue_long: Artificial Intelligence Systems (undergraduate), SEOULTECH · Lecture 08
-  venue_long_ko: 인공지능시스템(학부), 서울과기대 · 8주차 강의
-  role: Teaching assistant, lecturer
-  role_ko: 조교, 강의
-  tagline: 'A 75-minute undergraduate lecture on running LLMs on phones and laptops: why token generation
-    is limited by memory, and four levers that make models fit and run faster.'
-  tagline_ko: 휴대폰·노트북에서 LLM을 돌리는 법을 다룬 75분 학부 강의입니다. 토큰 생성이 왜 메모리에 막히는지, 그리고 모델을 기기에 맞추고 빠르게 만드는 네 가지
-    방법을 설명했습니다.
-  facts:
-  - k: Course
-    k_ko: 수업
-    v: Artificial Intelligence Systems (undergraduate), Fall 2026
-    v_ko: 인공지능시스템(학부), 2026년 2학기
-  - k: Date
-    k_ko: 날짜
-    v: Oct. 26, 2026
-    v_ko: 2026년 10월 26일
-  - k: Format
-    k_ko: 구성
-    v: 75 minutes · 54 slides · 14 animations
-    v_ko: 75분 · 슬라이드 54장 · 애니메이션 14개
-  sections:
-  - label: Why it is hard
-    label_ko: 왜 어려운가
-    text: An LLM writes one token at a time, and each token reads all of the weights from memory. On a
-      phone the speed limit is therefore memory bandwidth rather than compute. The lecture builds this
-      up from model memory size, prefill versus decode, and the KV cache.
-    text_ko: LLM은 토큰을 하나씩 만들고, 토큰마다 가중치 전체를 메모리에서 읽습니다. 그래서 휴대폰에서는 연산보다 메모리 대역폭이 속도를 정합니다. 강의는 모델의 메모리
-      크기, prefill과 decode의 차이, KV 캐시부터 차근차근 쌓아 올립니다.
-  - label: Four levers
-    label_ko: 네 가지 방법
-    text: '1. **Smaller numbers:** quantization, from outliers, AWQ and rotation to 4-bit weights, file
-      names like Q4_K_M, FP4 and 1.58-bit models.
-
-      2. **Use less:** pruning, sparsity and mixture-of-experts.
-
-      3. **Born small:** distillation and small or hybrid architectures.
-
-      4. **Talk faster:** speculative decoding.'
-    text_ko: '1. **숫자를 작게:** 양자화. 이상치, AWQ, 회전부터 4비트 가중치, Q4_K_M 같은 파일 이름, FP4, 1.58비트 모델까지.
-
-      2. **덜 쓰기:** 가지치기, 희소성, mixture-of-experts.
-
-      3. **처음부터 작게:** 지식 증류, 작은 모델·하이브리드 구조.
-
-      4. **빨리 말하기:** speculative decoding.'
-  - label: Putting it together
-    label_ko: 실전 적용
-    text: 'How the levers multiply, a case study of Apple''s on-device model, and the practical side:
-      deployment tools, choosing a model and measuring it on a real device. Fourteen short animations
-      made with Manim show ideas such as the KV cache growing token by token and speculative decoding
-      checking several draft tokens at once.'
-    text_ko: 네 방법이 어떻게 곱해지는지, Apple 온디바이스 모델 사례, 그리고 배포 도구·모델 고르기·실제 기기에서 측정하기 같은 실전 내용을 다뤘습니다. KV 캐시가
-      토큰마다 커지는 모습이나 speculative decoding이 초안 토큰 여러 개를 한 번에 검사하는 과정은 Manim으로 만든 짧은 애니메이션 14개로 보여 줬습니다.
-  figures:
-  - src: /assets/img/projects/ondevice-llm-lecture/1-lec-12-12.webp
-    caption: 'Slide 12: the four levers and what each one reduces.'
-    caption_ko: '12장: 네 가지 방법과 각각이 줄이는 것.'
-  - src: /assets/img/projects/ondevice-llm-lecture/2-lec-44-44.webp
-    caption: 'Slide 44: the levers multiply (peak speed-ups reported for OPPO AndesVL-4B, arXiv 2510.11496).'
-    caption_ko: '44장: 방법들은 곱해집니다 (OPPO AndesVL-4B 보고 최대 속도 향상, arXiv 2510.11496).'
-  thumb: /assets/img/projects/ondevice-llm-lecture/1-lec-12-12.webp
 - slug: dcase2025-task1-device-aware-kd
   title: Adaptive Knowledge Distillation using a Device-Aware Teacher for Low-Complexity Acoustic Scene
     Classification

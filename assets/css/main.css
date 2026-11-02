@@ -107,7 +107,16 @@ p { margin: 0 0 0.9em; }
 .bio { color: var(--ink-2); max-width: 640px; }
 .bio p { margin: 0 0 6px; }
 .name-alt { display: block; font-size: 15px; font-weight: 500; color: var(--ink-3); letter-spacing: 0; margin-top: 4px; }
-.interests { margin: 14px 0 0; }
+.research-areas { margin: 0 0 12px; max-width: 660px; }
+.research-areas .ra { display: grid; grid-template-columns: 76px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); }
+.research-areas .ra:last-child { border-bottom: 1px solid var(--line); }
+.research-areas dt { font-size: 13px; font-weight: 600; color: var(--accent); padding-top: 2px; }
+.research-areas dd { margin: 0; color: var(--ink-2); }
+.research-areas ul { margin: 0; padding-left: 18px; }
+.research-areas li { margin: 1px 0; }
+.research-areas a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.research-areas a:hover { color: var(--accent); text-decoration-color: currentColor; }
+@media (max-width: 480px) { .research-areas .ra { grid-template-columns: 1fr; gap: 4px; } }
 
 /* ---------- blocks ---------- */
 .block { padding-top: 56px; }

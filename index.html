@@ -12,10 +12,20 @@ body_class: page-home
       {% for r in cv.roles %}<li>{% include t.html en=r.en ko=r.ko %}</li>{% endfor %}
     </ul>
     <p class="bio-lead">{% include t.html en=cv.bio_lead.en ko=cv.bio_lead.ko %}</p>
+    <dl class="research-areas">
+      {% for r in cv.research %}
+        <div class="ra">
+          <dt>{% include t.html en=r.label ko=r.label_ko %}</dt>
+          <dd>
+            {% if r.en %}{% include t.html en=r.en ko=r.ko %}{% endif %}
+            {% if r.items %}<ul>{% for it in r.items %}<li>{% if it.link %}<a href="{{ it.link | relative_url }}">{% include t.html en=it.en ko=it.ko %}</a>{% else %}{% include t.html en=it.en ko=it.ko %}{% endif %}</li>{% endfor %}</ul>{% endif %}
+          </dd>
+        </div>
+      {% endfor %}
+    </dl>
     <div class="bio">
       {% for b in cv.bio %}<p>{% include t.html en=b.en ko=b.ko %}</p>{% endfor %}
     </div>
-    <p class="interests">{% for i in cv.interests %}<span class="tag">{% include t.html en=i.en ko=i.ko %}</span>{% endfor %}</p>
     <div class="links">
       <a class="btn btn-primary" href="mailto:{{ site.author.email }}">Email</a>
       <a class="btn" href="{{ site.author.scholar }}" target="_blank" rel="noopener">Google Scholar</a>
