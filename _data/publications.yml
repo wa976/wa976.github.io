@@ -75,6 +75,20 @@
       page: dcase2026-task3-semantic-acoustic-imaging
       links:
         paper: https://dcase.community/documents/challenge2026/technical_reports/DCASE2026_Jeong_144_t3.pdf
+    - venue: DCASE 2026
+      title: Tagging-Driven Inference Refinement and Dual-Separator Selection for Spatial Semantic Segmentation of Sound Scenes
+      authors: "**Seunggyu Jeong**, Seong-Eun Kim"
+      note: Task 4 (Spatial Semantic Segmentation of Sound Scenes)
+      note_ko: Task 4 (Spatial Semantic Segmentation of Sound Scenes)
+      links:
+        paper: https://dcase.community/documents/challenge2026/technical_reports/DCASE2026_Jeong_112_t4.pdf
+    - venue: DCASE 2026
+      title: Cross-Channel and Raw-Spectral Detector Ensembles for First-Shot Noise-Aware Anomalous Sound Detection
+      authors: "**Seunggyu Jeong**, Seong-Eun Kim"
+      note: Task 2 (Noise-aware Anomalous Sound Detection)
+      note_ko: Task 2 (Noise-aware Anomalous Sound Detection)
+      links:
+        paper: https://dcase.community/documents/challenge2026/technical_reports/DCASE2026_Jeong_66_t2.pdf
     - venue: DCASE 2025
       title: Adaptive Knowledge Distillation using a Device-Aware Teacher for Low-Complexity Acoustic Scene Classification
       authors: "**Seunggyu Jeong**, Seong-Eun Kim"

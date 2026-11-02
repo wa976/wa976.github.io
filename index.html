@@ -52,7 +52,7 @@ body_class: page-home
     {% endfor %}
   </ul>
   {% if cv.news.size > 6 %}
-    <button type="button" class="more-toggle" data-more="news-more"><span class="i18n" lang="en">Show all</span><span class="i18n" lang="ko">모두 보기</span></button>
+    {% include more-button.html target="news-more" %}
   {% endif %}
 </section>
 
@@ -75,7 +75,7 @@ body_class: page-home
   <p class="block-intro">{% include ui.html k="startup_intro" %}</p>
   <ol class="journey">
     {% for s in cv.startup %}
-      <li>
+      <li{% if forloop.index > 6 %} class="startup-more" hidden{% endif %}>
         <time>{{ s.date }}</time>
         <div>
           <span class="journey-text">{% include t.html en=s.en ko=s.ko md="inline" %}</span>
@@ -84,11 +84,14 @@ body_class: page-home
       </li>
     {% endfor %}
   </ol>
+  {% if cv.startup.size > 6 %}{% include more-button.html target="startup-more" %}{% endif %}
 </section>
 
 <section id="publications" class="wrap block">
   <h2>{% include ui.html k="publications" %}</h2>
   {% for g in site.data.publications %}
+    {% if forloop.index > 2 %}{% assign _more = ' class="pubs-more" hidden' %}{% else %}{% assign _more = '' %}{% endif %}
+    <div{{ _more }}>
     <h3 class="group-title">{% include t.html en=g.group ko=g.group_ko %}</h3>
     <ol class="pubs">
       {% for it in g.items %}
@@ -110,7 +113,9 @@ body_class: page-home
         </li>
       {% endfor %}
     </ol>
+    </div>
   {% endfor %}
+  {% if site.data.publications.size > 2 %}{% include more-button.html target="pubs-more" k="show_more_pubs" %}{% endif %}
 </section>
 
 <section id="experience" class="wrap block two-col">
@@ -136,10 +141,25 @@ body_class: page-home
           <strong>{% include t.html en=e.what ko=e.what_ko %}</strong>
           {% if e.where %}<span class="where">{% include t.html en=e.where ko=e.where_ko %}</span>{% endif %}
           {% if e.detail %}<span class="detail">{% include t.html en=e.detail ko=e.detail_ko %}</span>{% endif %}
+          {% if e.link %}<a class="tl-link" href="{{ e.link }}" target="_blank" rel="noopener">{% include ui.html k=e.link_ui %} →</a>{% endif %}
         </li>
       {% endfor %}
     </ul>
   </div>
+</section>
+
+<section id="research-projects" class="wrap block">
+  <h2>{% include ui.html k="research_projects" %}</h2>
+  <ul class="timeline projects-tl">
+    {% for e in cv.research_projects %}
+      <li>
+        <span class="when">{{ e.when }}</span>
+        <strong>{% include t.html en=e.what ko=e.what_ko %}</strong>
+        <span class="where">{% include t.html en=e.where ko=e.where_ko %}</span>
+        <span class="detail">{% include t.html en=e.detail ko=e.detail_ko %}</span>
+      </li>
+    {% endfor %}
+  </ul>
 </section>
 
 <section id="awards" class="wrap block">

@@ -342,3 +342,8 @@ html[data-lang="en"] .lang-toggle [data-l="en"], html[data-lang="ko"] .lang-togg
 }
 
 .news li[hidden] { display: none; }
+
+/* collapsed items ("Show all") */
+[hidden] { display: none !important; }
+.tl-link { display: inline-block; align-self: flex-start; margin-top: 4px; font-size: 14px; color: var(--accent); }
+.tl-link:hover { text-decoration: underline; text-underline-offset: 3px; }

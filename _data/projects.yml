@@ -337,6 +337,15 @@
       data only, tested on smartphone recordings. First three rows from Table 2, last row from Table 3.
     caption_ko: 스마트폰 녹음으로 평가한 폐음 분류 결과, 층화 5-fold 교차 검증(평균 ± 표준편차). SP = 특이도, SE = 민감도, Score = SE와 SP의
       평균. † 청진기 데이터만으로 학습하고 스마트폰 녹음으로 평가. 위 세 행은 논문의 Table 2, 마지막 행은 Table 3에서 가져왔습니다.
+  sections_after:
+  - label: From paper to app (MediSensing, 2024)
+    label_ko: 논문에서 앱으로 (메디센싱, 2024)
+    text: Beyond the research prototype, iMedic became MediSensing's first product in 2024, a consumer
+      app built under the Pre-Startup Package. I planned the app and led its AI. The app walks parents
+      through each recording step by step, from keeping the child calm to where to hold the phone on the
+      chest, with a breathing prompt and countdown before it records each site for 10 seconds.
+    text_ko: 연구용 시제품과 별개로, 아이메딕은 2024년 예비창업패키지로 만든 메디센싱의 첫 제품(소비자용 앱)이기도 합니다. 저는 앱 기획과 AI를 맡았습니다.
+      앱은 아이를 진정시키는 것부터 휴대폰을 가슴 어디에 대야 하는지까지 단계별로 안내하고, 숨쉬기 안내와 카운트다운 뒤에 부위마다 10초씩 녹음합니다.
   links:
     doi: https://doi.org/10.1145/3706599.3719915
     arxiv: https://arxiv.org/abs/2504.15743
@@ -356,6 +365,10 @@
     caption: 'App screens: (a) symptom selection, (b) recording-site guidance, (c) real-time recording,
       (d) results.'
     caption_ko: '앱 화면: (a) 증상 선택, (b) 녹음 부위 안내, (c) 실시간 녹음, (d) 결과.'
+  - src: /assets/img/projects/imedic-chi2025/4-app-2024.webp
+    caption: 'The 2024 iMedic app by MediSensing: calm-state check, breathing countdown, chest-position
+      guide and recording.'
+    caption_ko: '메디센싱 iMedic 앱(2024): 진정 상태 확인, 숨쉬기 카운트다운, 가슴 위치 안내, 녹음.'
   thumb: /assets/img/projects/imedic-chi2025/1-teaser_final.webp
 - slug: pc-mcl-icassp2026
   title: 'PC-MCL: Patient-Consistent Multi-Cycle Learning with Multi-Label Bias Correction for Respiratory

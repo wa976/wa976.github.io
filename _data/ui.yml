@@ -26,3 +26,7 @@ filter_all: {en: "All", ko: "전체"}
 type_research: {en: "Research", ko: "연구"}
 type_startup: {en: "Startup & Product", ko: "창업·제품"}
 last_updated: {en: "Last updated", ko: "최근 업데이트"}
+research_projects: {en: "Research Projects", ko: "연구과제"}
+thesis_link: {en: "Read the thesis", ko: "학위논문 보기"}
+show_all: {en: "Show all", ko: "모두 보기"}
+show_more_pubs: {en: "Show challenge reports and domestic papers", ko: "챌린지 보고서·국내 논문 보기"}
