@@ -347,3 +347,15 @@ html[data-lang="en"] .lang-toggle [data-l="en"], html[data-lang="ko"] .lang-togg
 [hidden] { display: none !important; }
 .tl-link { display: inline-block; align-self: flex-start; margin-top: 4px; font-size: 14px; color: var(--accent); }
 .tl-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- blog-style project pages ---------- */
+.blog-sec { margin-bottom: 34px; }
+.blog-sec .fig { margin: 18px 0 8px; }
+.blog-sec .table-wrap { margin-top: 16px; }
+.blog-sec.tldr { background: var(--bg-soft); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 18px 22px; }
+.blog-sec.tldr h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); margin-bottom: 6px; }
+.blog-sec.tldr p:last-child { margin-bottom: 0; }
+.project-body li { margin: 4px 0; }
+.project-body li > p { margin: 0; }
+.project-body code { font-size: 0.9em; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 5px; padding: 0 5px; }
+.project-body strong { color: var(--ink); }

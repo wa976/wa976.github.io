@@ -44,6 +44,13 @@ body_class: page-project
     </section>
   {% endif %}
 
+  {% if p.blog %}{% assign _b0 = p.blog | first %}
+    <section class="blog-sec tldr">
+      <h2>{% include t.html en=_b0.h ko=_b0.h_ko %}</h2>
+      {% include t.html en=_b0.text ko=_b0.text_ko md=true tag="div" %}
+    </section>
+  {% endif %}
+
   {% assign hero = p.figures | first %}
   {% if hero %}
     <figure class="fig hero-fig">
@@ -53,6 +60,16 @@ body_class: page-project
   {% endif %}
 
   <div class="project-body">
+    {% if p.blog %}
+      {% for b in p.blog offset: 1 %}
+        <section class="blog-sec">
+          <h2>{% include t.html en=b.h ko=b.h_ko %}</h2>
+          {% include t.html en=b.text ko=b.text_ko md=true tag="div" %}
+          {% if b.fig %}{% assign _fi = b.fig | minus: 1 %}{% assign _f = p.figures[_fi] %}{% include figure.html f=_f lazy=true %}{% endif %}
+          {% if b.table %}{% assign _ti = b.table | minus: 1 %}{% assign _t = p.tables[_ti] %}{% include data-table.html t=_t %}{% endif %}
+        </section>
+      {% endfor %}
+    {% else %}
     {% if p.sections %}
       {% for s in p.sections %}
         <section><h2>{% include t.html en=s.label ko=s.label_ko %}</h2>{% include t.html en=s.text ko=s.text_ko md=true tag="div" %}</section>
@@ -66,36 +83,20 @@ body_class: page-project
     {% endif %}
     {% if p.result %}
       <section><h2>{% include ui.html k="results" %}</h2>{% include t.html en=p.result ko=p.result_ko md=true tag="div" %}
-        {% for t in p.tables %}
-          <div class="table-wrap">
-            <table>
-              <thead><tr>{% for h in t.head %}<th>{{ h }}</th>{% endfor %}</tr></thead>
-              <tbody>
-                {% for r in t.rows %}<tr>{% for c in r %}<td>{{ c | escape | replace_first: '**', '<strong>' | replace_first: '**', '</strong>' }}</td>{% endfor %}</tr>{% endfor %}
-              </tbody>
-            </table>
-          </div>
-          {% if t.caption %}<p class="table-caption">{% include t.html en=t.caption ko=t.caption_ko %}</p>{% endif %}
-        {% endfor %}
+        {% for t in p.tables %}{% include data-table.html t=t %}{% endfor %}
       </section>
     {% endif %}
-
     {% for s in p.sections_after %}
       <section><h2>{% include t.html en=s.label ko=s.label_ko %}</h2>{% include t.html en=s.text ko=s.text_ko md=true tag="div" %}</section>
     {% endfor %}
-
     {% if p.figures.size > 1 %}
       <section class="more-figs">
         <h2>{% include ui.html k="figures" %}</h2>
         <div class="fig-grid">
-          {% for f in p.figures offset: 1 %}
-            <figure class="fig">
-              <button type="button" class="fig-frame{% if f.photo %} is-photo{% endif %}" data-zoom aria-label="Enlarge figure"><img src="{{ f.src | relative_url }}" alt="{{ f.caption | escape }}" loading="lazy" /></button>
-              <figcaption>{% include t.html en=f.caption ko=f.caption_ko %}</figcaption>
-            </figure>
-          {% endfor %}
+          {% for f in p.figures offset: 1 %}{% include figure.html f=f lazy=true %}{% endfor %}
         </div>
       </section>
+    {% endif %}
     {% endif %}
 
     {% if p.note %}<p class="note">{% include t.html en=p.note ko=p.note_ko %}</p>{% endif %}

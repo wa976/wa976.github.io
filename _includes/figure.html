@@ -1,0 +1,5 @@
+{%- assign f = include.f -%}
+<figure class="fig{% if include.cls %} {{ include.cls }}{% endif %}">
+  <button type="button" class="fig-frame{% if f.photo %} is-photo{% endif %}" data-zoom aria-label="Enlarge figure"><img src="{{ f.src | relative_url }}" alt="{{ f.caption | escape }}"{% if include.lazy %} loading="lazy"{% endif %} /></button>
+  <figcaption>{% include t.html en=f.caption ko=f.caption_ko %}</figcaption>
+</figure>

@@ -1,0 +1,10 @@
+{%- assign t = include.t -%}
+<div class="table-wrap">
+  <table>
+    <thead><tr>{% for h in t.head %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+    <tbody>
+      {% for r in t.rows %}<tr>{% for c in r %}<td>{{ c | escape | replace_first: '**', '<strong>' | replace_first: '**', '</strong>' }}</td>{% endfor %}</tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% if t.caption %}<p class="table-caption">{% include t.html en=t.caption ko=t.caption_ko %}</p>{% endif %}
